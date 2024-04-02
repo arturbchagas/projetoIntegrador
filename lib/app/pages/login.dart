@@ -6,6 +6,7 @@ import 'package:ijato/app/widgets/text_field.dart';
 import 'package:ijato/app/widgets/underlined_text.dart';
 import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
+import 'package:routefly/routefly.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -54,7 +55,9 @@ class LoginPage extends StatelessWidget {
                       ),
                       UnderlinedText(
                         underlinedText: "Cadastrar-se",
-                        onPressed: () {},
+                        onPressed: () {
+                          Routefly.navigate('/user-type');
+                        },
                       )
                     ],
                   ),
