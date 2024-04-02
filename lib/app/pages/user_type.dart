@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ijato/app/widgets/background_image.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
 import 'package:ijato/app/widgets/logo.dart';
+import 'package:routefly/routefly.dart';
 
 class UserTypePage extends StatelessWidget {
   const UserTypePage({super.key});
@@ -24,7 +25,9 @@ class UserTypePage extends StatelessWidget {
                   ButtonPrimary(
                     color: Colors.blue,
                     buttonPrimaryName: "Usuario",
-                    onPressed: () {},
+                    onPressed: () {
+                      Routefly.navigate('/register');
+                    },
                   ),
                   const SizedBox(height: 20),
                   ButtonPrimary(
