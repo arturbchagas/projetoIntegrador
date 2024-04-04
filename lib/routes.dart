@@ -3,6 +3,7 @@ import 'package:routefly/routefly.dart';
 import 'app/pages/login.dart' as a0;
 import 'app/pages/user_type.dart' as a1;
 import 'app/pages/register.dart' as a2;
+import 'app/pages/establishment_reg.dart' as a3;
 
 List<RouteEntity> get routes => [
       RouteEntity(
@@ -32,6 +33,15 @@ List<RouteEntity> get routes => [
           const a2.RegisterPage(),
         ),
       ),
+      RouteEntity(
+        key: '/establishmentreg',
+        uri: Uri.parse('/establishmentreg'),
+        routeBuilder: (ctx, settings) => Routefly.defaultRouteBuilder(
+          ctx,
+          settings,
+          const a3.EstablishmentReg(),
+        ),
+      ),
     ];
 
 const routePaths = (
@@ -39,4 +49,5 @@ const routePaths = (
   login: '/login',
   userType: '/user-type',
   register: '/register',
+  establishmentReg: '/establishmentreg',
 );

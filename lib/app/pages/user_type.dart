@@ -33,7 +33,9 @@ class UserTypePage extends StatelessWidget {
                   ButtonPrimary(
                     color: Colors.red,
                     buttonPrimaryName: "Estabelecimento",
-                    onPressed: () {},
+                    onPressed: () {
+                      Routefly.navigate('/establishmentreg');
+                    },
                   ),
                 ],
               ),
