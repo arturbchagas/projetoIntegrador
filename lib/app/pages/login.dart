@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:routefly/routefly.dart';
+
+import 'package:ijato/app/controllers/user_controller.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
 import 'package:ijato/app/widgets/logo.dart';
@@ -6,10 +9,22 @@ import 'package:ijato/app/widgets/text_field.dart';
 import 'package:ijato/app/widgets/underlined_text.dart';
 import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
-import 'package:routefly/routefly.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final controller = UserController();
+
+  void _setMessage() {
+    setState(() {
+      controller.message;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +40,21 @@ class LoginPage extends StatelessWidget {
                 children: [
                   const LogoImage(),
                   const SizedBox(height: 50),
+                  Text(
+                    controller.message,
+                    style: const TextStyle(color: Colors.red, fontSize: 16),
+                  ),
                   const SizedBox(height: 15),
-                  const TextFieldPrimary(
+                  TextFieldPrimary(
                     textFieldName: "e-mail",
                     onChanged: null,
+                    controller: controller.emailInput,
                   ),
                   const SizedBox(height: 20),
-                  const TextFieldPrimary(
+                  TextFieldPrimary(
                     textFieldName: "senha",
                     onChanged: null,
+                    controller: controller.passwordInput,
                   ),
                   const SizedBox(height: 20),
                   const Row(
@@ -56,6 +77,7 @@ class LoginPage extends StatelessWidget {
                       UnderlinedText(
                         underlinedText: "Cadastrar-se",
                         onPressed: () {
+                          controller.resetsAllFields();
                           Routefly.navigate('/user-type');
                         },
                       )
@@ -65,7 +87,10 @@ class LoginPage extends StatelessWidget {
                   ButtonPrimary(
                     color: Colors.blue,
                     buttonPrimaryName: "Entrar",
-                    onPressed: () {},
+                    onPressed: () {
+                      _setMessage();
+                      controller.tryToLogin();
+                    },
                   ),
                 ],
               ),

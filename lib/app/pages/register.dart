@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:routefly/routefly.dart';
 
+import 'package:ijato/app/controllers/user_controller.dart';
+
 import 'package:ijato/app/widgets/background_image.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/text_field.dart';
@@ -16,6 +18,14 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final controller = UserController();
+
+  void _setMessage() {
+    setState(() {
+      controller.message;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,30 +41,39 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 50),
                     const LogoImage(),
                     const SizedBox(height: 15),
+                    Text(
+                      controller.message,
+                      style: const TextStyle(color: Colors.red, fontSize: 16),
+                    ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "nome completo",
                       onChanged: (value) => {},
+                      controller: controller.nameInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "e-mail",
                       onChanged: (value) => {},
+                      controller: controller.emailInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "telefone",
                       onChanged: (value) => {},
+                      controller: controller.phoneInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "senha",
                       onChanged: (value) => {},
+                      controller: controller.passwordInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "confirmar senha",
                       onChanged: (value) => {},
+                      controller: controller.confirmPassInput,
                     ),
                     const SizedBox(height: 5),
                     const Row(
@@ -70,7 +89,10 @@ class _RegisterPageState extends State<RegisterPage> {
                     ButtonPrimary(
                       color: Colors.blue,
                       buttonPrimaryName: "cadastrar-se",
-                      onPressed: () {},
+                      onPressed: () {
+                        _setMessage();
+                        controller.register();
+                      },
                     ),
                     const SizedBox(height: 10),
                     Row(
@@ -83,6 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         UnderlinedText(
                             underlinedText: "login?",
                             onPressed: () {
+                              controller.resetsAllFields();
                               Routefly.navigate('/login');
                             })
                       ],
