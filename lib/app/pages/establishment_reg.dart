@@ -1,3 +1,5 @@
+/* define um widget EstablishmentReg que representa a tela de registro de estabelecimento */
+
 import 'package:flutter/material.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
