@@ -8,3 +8,6 @@ class UserBindings extends Bindings {
     Get.lazyPut(() => UserController());
   }
 }
+
+/*No geral, esse código parece estar configurando as dependências do
+seu aplicativo, especificamente o controlador do usuário, utilizando o GetX.*/
