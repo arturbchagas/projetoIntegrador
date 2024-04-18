@@ -1,3 +1,6 @@
+/* Este é o controlador que gerencia o estado e a lógica relacionados aos usuários.
+   Este controlador está lidando com a lógica de autenticação e registro de usuários . */
+
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:routefly/routefly.dart';
@@ -81,3 +84,4 @@ class UserController extends GetxController {
     confirmPassInput.text = "";
   }
 }
+
