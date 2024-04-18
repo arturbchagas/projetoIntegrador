@@ -9,5 +9,5 @@ class UserBindings extends Bindings {
   }
 }
 
-/*No geral, esse código parece estar configurando as dependências do
-seu aplicativo, especificamente o controlador do usuário, utilizando o GetX.*/
+/* No geral, esse código está configurando as dependências do
+aplicativo, especificamente o controlador do usuário, utilizando o GetX. */
