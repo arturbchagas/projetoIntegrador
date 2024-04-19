@@ -1,6 +1,8 @@
 /* define um widget EstablishmentReg que representa a tela de registro de estabelecimento */
 
 import 'package:flutter/material.dart';
+import 'package:ijato/app/controllers/user_controller.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
@@ -9,8 +11,15 @@ import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/text_field.dart';
 import 'package:ijato/app/widgets/underlined_text.dart';
 
-class EstablishmentReg extends StatelessWidget {
+class EstablishmentReg extends StatefulWidget {
   const EstablishmentReg({super.key});
+
+  @override
+  State<EstablishmentReg> createState() => _EstablishmentRegState();
+}
+
+class _EstablishmentRegState extends State<EstablishmentReg> {
+  final controller = UserController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,15 +92,19 @@ class EstablishmentReg extends StatelessWidget {
                       buttonPrimaryName: "cadastrar",
                     ),
                     const SizedBox(height: 10),
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           "ja possui um",
                           style: TextStyle(color: Colors.white70),
                         ),
                         UnderlinedText(
                           underlinedText: "login?",
+                          onPressed: () {
+                              controller.resetsAllFields();
+                              Navigator.pushNamed(context, AppRoutes.index);
+                            },
                         )
                       ],
                     ),

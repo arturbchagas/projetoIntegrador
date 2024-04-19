@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:routefly/routefly.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:ijato/app/shared/app_images.dart';
 
@@ -17,7 +17,7 @@ class LogoImage extends StatelessWidget {
         AppImages.logo,
       ),
       onPressed: () {
-        Routefly.navigate('/login');
+        Navigator.pushNamed(context, AppRoutes.index);
       },
     );
   }

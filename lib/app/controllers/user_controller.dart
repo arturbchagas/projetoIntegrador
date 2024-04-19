@@ -1,12 +1,11 @@
 /* Este é o controlador que gerencia o estado e a lógica relacionados aos usuários.
    Este controlador está lidando com a lógica de autenticação e registro de usuários . */
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:routefly/routefly.dart';
-
 import 'package:ijato/app/models/user.dart';
 import 'package:ijato/app/mock/users.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 class UserController extends GetxController {
   TextEditingController nameInput = TextEditingController();
@@ -17,7 +16,7 @@ class UserController extends GetxController {
 
   var message = '';
 
-  void tryToLogin() async {
+  void tryToLogin(BuildContext context) async {
     try {
       if (emailInput.text == "" || passwordInput.text == "") {
         message = 'preencha todos os campos';
@@ -37,13 +36,13 @@ class UserController extends GetxController {
         throw ('Email ou senha incorreto!');
       }
 
-      login();
+      login(context);
     } catch (e) {
       rethrow;
     }
   }
 
-  void register() async {
+  void register(BuildContext context) async {
     try {
       if (nameInput.text == "" ||
           emailInput.text == "" ||
@@ -64,15 +63,16 @@ class UserController extends GetxController {
 
       resetsAllFields();
 
-      Routefly.navigate('/home-user');
+      Navigator.pushNamed(context, AppRoutes.homeUser);
     } catch (e) {
       rethrow;
     }
   }
 
-  void login() {
+  void login(BuildContext context) {
     resetsAllFields();
-    Routefly.navigate('/home-user');
+    Navigator.pushNamed(context, AppRoutes.homeUser);
+
   }
 
   void resetsAllFields() {

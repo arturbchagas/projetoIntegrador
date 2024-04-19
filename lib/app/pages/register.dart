@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:routefly/routefly.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:ijato/app/controllers/user_controller.dart';
 
@@ -91,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       buttonPrimaryName: "cadastrar-se",
                       onPressed: () {
                         _setMessage();
-                        controller.register();
+                        controller.register(context);
                       },
                     ),
                     const SizedBox(height: 10),
@@ -106,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             underlinedText: "login?",
                             onPressed: () {
                               controller.resetsAllFields();
-                              Routefly.navigate('/login');
+                              Navigator.pushNamed(context, AppRoutes.index);
                             })
                       ],
                     )

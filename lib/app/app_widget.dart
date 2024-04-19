@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ijato/app/pages/establishment_reg.dart';
 import 'package:ijato/app/pages/home_user.dart';
 import 'package:ijato/app/pages/user_type.dart';

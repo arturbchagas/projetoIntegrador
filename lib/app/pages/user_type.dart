@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:routefly/routefly.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
@@ -26,7 +26,7 @@ class UserTypePage extends StatelessWidget {
                     color: Colors.blue,
                     buttonPrimaryName: "Usuario",
                     onPressed: () {
-                      Routefly.navigate('/register');
+                    Navigator.pushNamed(context, AppRoutes.register);
                     },
                   ),
                   const SizedBox(height: 20),
@@ -34,7 +34,7 @@ class UserTypePage extends StatelessWidget {
                     color: Colors.red,
                     buttonPrimaryName: "Estabelecimento",
                     onPressed: () {
-                      Routefly.navigate('/establishmentreg');
+                      Navigator.pushNamed(context, AppRoutes.establishmentReg);
                     },
                   ),
                 ],
