@@ -1,15 +1,19 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class TextFieldPrimary extends StatelessWidget {
   final String textFieldName;
   final Function(String)? onChanged;
   final TextEditingController? controller;
+  final obscureText;
 
   const TextFieldPrimary({
     super.key,
     required this.textFieldName,
     this.onChanged,
     this.controller,
+    this.obscureText= false,
   });
 
   @override
