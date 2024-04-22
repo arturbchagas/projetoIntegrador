@@ -45,13 +45,13 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 50),
                     Text(
                       controller.message,
-                      style: const TextStyle(color: Colors.red, fontSize: 16),
+                      style: const TextStyle(color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "e-mail",
                       onChanged: null,
-                      controller: controller.emailInput,
+                      controller: controller.emailInput, 
                     ),
                     const SizedBox(height: 20),
                     TextFieldPrimary(
