@@ -7,6 +7,7 @@ import 'package:ijato/app/widgets/research_field.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
