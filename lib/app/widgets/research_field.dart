@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 
 class ResearchField extends StatelessWidget {
   final TextEditingController? controller;
+  final String? label;
 
-  const ResearchField({super.key, this.controller});
+  const ResearchField({Key? key, this.controller, this.label}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 35,
       child: TextField(
-        decoration: const InputDecoration(
-          suffixIcon: Icon(Icons.search),
+        decoration: InputDecoration(
+          labelText: label,
+          suffixIcon: const Icon(Icons.search),
           focusedBorder:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
-          border: OutlineInputBorder(
+              const OutlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
+          border: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(7))),
           fillColor: Colors.black26,
           filled: true,

@@ -2,5 +2,6 @@
     "cSpell.words": [
         "ijato"
     ],
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "C:/dev/ijato/projetoIntegrador/windows"
 }
