@@ -41,8 +41,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const LogoImage(),
                     const SizedBox(height: 50),
+                    const LogoImage(),
+                    const SizedBox(height: 30),
                     Text(
                       controller.message,
                       style: const TextStyle(color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),

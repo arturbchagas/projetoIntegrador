@@ -4,6 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/research_field.dart';
+import 'package:ijato/app/widgets/favoritos.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,13 +33,20 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 20),
                   Column(
                     children: [
-                      Text(
-                        "Buscar lava-jato:",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
                       SizedBox(height: 10),
-                      ResearchField()
+                      Row(
+                        children: [
+                          FavoritosBox(),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child:ResearchField(
+                              label: 'Buscar lava-jato:',
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
                   )
                 ],

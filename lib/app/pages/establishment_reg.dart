@@ -36,7 +36,7 @@ class _EstablishmentRegState extends State<EstablishmentReg> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 40),
                     const LogoImage(),
                     const SizedBox(height: 15),
                     const TextFieldPrimary(textFieldName: "nome completo"),
@@ -102,9 +102,9 @@ class _EstablishmentRegState extends State<EstablishmentReg> {
                         UnderlinedText(
                           underlinedText: "login?",
                           onPressed: () {
-                              controller.resetsAllFields();
-                              Navigator.pushNamed(context, AppRoutes.index);
-                            },
+                            controller.resetsAllFields();
+                            Navigator.pushNamed(context, AppRoutes.index);
+                          },
                         )
                       ],
                     ),
