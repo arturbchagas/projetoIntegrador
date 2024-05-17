@@ -10,6 +10,7 @@ import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/text_field.dart';
 import 'package:ijato/app/widgets/underlined_text.dart';
+import 'package:ijato/app/controllers/user_controller.dart';
 
 class EstablishmentReg extends StatefulWidget {
   const EstablishmentReg({super.key});

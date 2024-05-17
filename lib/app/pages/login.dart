@@ -11,25 +11,15 @@ import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final controller = UserController();
-
-  void _setMessage() {
-    setState(() {
-      controller.message;
-    });
-  }
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userController = Provider.of<UserController>(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -45,20 +35,21 @@ class _LoginPageState extends State<LoginPage> {
                     const LogoImage(),
                     const SizedBox(height: 30),
                     Text(
-                      controller.message,
-                      style: const TextStyle(color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),
+                      userController.error,
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "e-mail",
                       onChanged: null,
-                      controller: controller.emailInput, 
+                      controller: userController.emailInput,
                     ),
                     const SizedBox(height: 20),
                     TextFieldPrimary(
                       textFieldName: "senha",
                       onChanged: null,
-                      controller: controller.passwordInput,
+                      controller: userController.passwordInput,
                       obscureText: true,
                     ),
                     const SizedBox(height: 20),
@@ -82,8 +73,8 @@ class _LoginPageState extends State<LoginPage> {
                         UnderlinedText(
                           underlinedText: "Cadastrar-se",
                           onPressed: () {
-                            controller.resetsAllFields();
-                            Navigator.pushNamed(context, AppRoutes.userType);
+                            userController.resetsAllFields();
+                            Navigator.pushReplacementNamed(context, AppRoutes.userType);
                           },
                         )
                       ],
@@ -93,8 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.blue,
                       buttonPrimaryName: "Entrar",
                       onPressed: () {
-                        _setMessage();
-                        controller.tryToLogin(context);
+                        userController.tryToLogin(context);
                       },
                     ),
                   ],

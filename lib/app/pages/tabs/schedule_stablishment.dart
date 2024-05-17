@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
-import 'package:ijato/app/widgets/research_field.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-  
+class ScheduleStablishment extends StatelessWidget {
+  const ScheduleStablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,16 +26,14 @@ class HomePage extends StatelessWidget {
                       SizedBox(width: 100, height: 100, child: AvatarImage())
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                   Column(
                     children: [
                       Text(
-                        "Buscar lava-jato:",
+                        "essa tela é de agendamentos Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      ResearchField()
                     ],
                   )
                 ],
