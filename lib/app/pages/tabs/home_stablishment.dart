@@ -5,9 +5,8 @@ import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/research_field.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-  
+class HomeStablishment extends StatelessWidget {
+  const HomeStablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "Buscar lava-jato:",
+                        "essa tela é de estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
