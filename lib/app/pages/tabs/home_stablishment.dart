@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
-import 'package:ijato/app/widgets/research_field.dart';
 
 class HomeStablishment extends StatelessWidget {
   const HomeStablishment({super.key});

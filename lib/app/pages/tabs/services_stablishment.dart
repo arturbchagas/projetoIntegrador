@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
+import 'package:ijato/app/widgets/research_field.dart';
 
-class ScheduleStablishment extends StatelessWidget {
-  const ScheduleStablishment({super.key});
+class ServicesStablishment extends StatelessWidget {
+  const ServicesStablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,7 @@ class ScheduleStablishment extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "essa tela é de agendamentos Estabelecimento:",
+                        "essa tela é de Serviços Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
