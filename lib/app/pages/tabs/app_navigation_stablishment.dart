@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:ijato/app/pages/login.dart';
-import 'package:ijato/app/pages/home_user.dart';
+import 'package:ijato/app/pages/tabs/home_user.dart';
 import 'package:ijato/app/pages/establishment_reg.dart';
+import 'package:ijato/app/pages/tabs/home_stablishment.dart';
 import 'package:ijato/app/pages/register.dart';
+import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
 import 'package:ijato/app/pages/user_type.dart';
 
-
-class AppNavitgation extends StatefulWidget {
-  const AppNavitgation({super.key});
+class AppNavitgationStablishment extends StatefulWidget {
+  const AppNavitgationStablishment({super.key});
 
   @override
-  State<AppNavitgation> createState() => _AppNavitgationState();
+  State<AppNavitgationStablishment> createState() =>
+      _AppNavitgationStablishmentState();
 }
 
-class _AppNavitgationState extends State<AppNavitgation> {
+class _AppNavitgationStablishmentState
+    extends State<AppNavitgationStablishment> {
   int index = 0;
   final List<Widget> tabs = [
-    const LoginPage(),
-    const EstablishmentReg(),
-    const HomePage(),
-    const RegisterPage(),
-    const UserTypePage()
+    const HomeStablishment(),
+    const ScheduleStablishment(),
   ];
 
   void handleTab(int i) {
@@ -40,17 +40,27 @@ class _AppNavitgationState extends State<AppNavitgation> {
         onTap: handleTab,
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Colors.amber,
             icon: Icon(Icons.home),
             label: 'Início',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: 'Usuário',
+            backgroundColor: Colors.green,
+            icon: Icon(Icons.schedule),
+            label: 'Agenda',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Conta',
-          )
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Conta',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Conta',
+          ),
         ],
       ),
     );

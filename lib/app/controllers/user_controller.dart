@@ -1,13 +1,9 @@
-/* Este é o controlador que gerencia o estado e a lógica relacionados aos usuários.
-   Este controlador está lidando com a lógica de autenticação e registro de usuários . */
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:ijato/app/models/user.dart';
 import 'package:ijato/app/mock/users.dart';
 import 'package:ijato/app/shared/app_routes.dart';
 
-class UserController extends GetxController {
+class UserController with ChangeNotifier {
   TextEditingController nameInput = TextEditingController();
   TextEditingController emailInput = TextEditingController();
   TextEditingController phoneInput = TextEditingController();
@@ -15,6 +11,7 @@ class UserController extends GetxController {
   TextEditingController confirmPassInput = TextEditingController();
 
   var message = '';
+  String error = '';
 
   void tryToLogin(BuildContext context) async {
     try {
@@ -23,20 +20,23 @@ class UserController extends GetxController {
         throw ('preencha todos os campos');
       }
 
-      final user = UserMock.list.firstWhere(
-        (element) => element.email == emailInput.text,
-        orElse: () {
-          message = 'Email ou senha incorreto!';
-          throw ('Email ou senha incorreto!');
-        },
-      );
+      try {
+        final user = UserMock.listUsers.firstWhere(
+          (element) => element.email == emailInput.text,
+          orElse: () {
+            throw ('Usuário ou senha inválido!');
+          },
+        );
 
-      if (user.pass != passwordInput.text) {
-        message = 'Email ou senha incorreto!';
-        throw ('Email ou senha incorreto!');
+        if (user.pass != passwordInput.text) {
+          throw ('Usuário ou senha inválido!');
+        }
+
+        login(context, user);
+      } catch (err) {
+        error = err.toString();
+        notifyListeners();
       }
-
-      login(context);
     } catch (e) {
       rethrow;
     }
@@ -57,9 +57,9 @@ class UserController extends GetxController {
       }
 
       final newUser = User("3", nameInput.text, emailInput.text,
-          phoneInput.text, passwordInput.text);
+          phoneInput.text, passwordInput.text, UserType.user);
 
-      UserMock.list.add(newUser);
+      UserMock.listUsers.add(newUser);
 
       resetsAllFields();
 
@@ -69,10 +69,17 @@ class UserController extends GetxController {
     }
   }
 
-  void login(BuildContext context) {
+  void login(BuildContext context, User user) {
     resetsAllFields();
-    Navigator.pushNamed(context, AppRoutes.homeUser);
-
+    if (user.type == UserType.user) {
+      Navigator.pushReplacementNamed(context, AppRoutes.homeUser);
+    } else if (user.type == UserType.company) {
+      Navigator.pushReplacementNamed(
+          context, AppRoutes.appNavigationStablishment);
+    } else {
+      error = 'Credenciais inválidas';
+      notifyListeners();
+    }
   }
 
   void resetsAllFields() {
@@ -82,6 +89,6 @@ class UserController extends GetxController {
     phoneInput.text = "";
     passwordInput.text = "";
     confirmPassInput.text = "";
+    error = "";
   }
 }
-
