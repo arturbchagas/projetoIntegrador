@@ -5,7 +5,11 @@ import 'package:ijato/app/pages/establishment_reg.dart';
 import 'package:ijato/app/pages/tabs/home_stablishment.dart';
 import 'package:ijato/app/pages/register.dart';
 import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
+import 'package:ijato/app/pages/tabs/services_stablishment.dart';
+import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
+import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
 import 'package:ijato/app/pages/user_type.dart';
+
 
 class AppNavitgationStablishment extends StatefulWidget {
   const AppNavitgationStablishment({super.key});
@@ -21,6 +25,9 @@ class _AppNavitgationStablishmentState
   final List<Widget> tabs = [
     const HomeStablishment(),
     const ScheduleStablishment(),
+    const ServicesStablishment(),
+    const FinancesStablishment(),
+    const RequestsStablishment(),
   ];
 
   void handleTab(int i) {
@@ -36,30 +43,35 @@ class _AppNavitgationStablishmentState
         child: tabs[index],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black54,
         currentIndex: index,
         onTap: handleTab,
         items: const [
           BottomNavigationBarItem(
-            backgroundColor: Colors.amber,
-            icon: Icon(Icons.home),
+            backgroundColor: Color.fromARGB(251, 0, 0, 0),
+            icon: Icon(
+              Icons.home),
             label: 'Início',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.green,
+            backgroundColor: Color.fromARGB(255, 207, 24, 11),
             icon: Icon(Icons.schedule),
             label: 'Agenda',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            backgroundColor: Color.fromARGB(255, 63, 63, 63),
+            icon: Icon(Icons.construction),
             label: 'Conta',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Conta',
+            backgroundColor: Color.fromARGB(255, 5, 160, 44),
+            icon: Icon(Icons.monetization_on),
+            label: 'Financeiro',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Conta',
+            backgroundColor: Color.fromARGB(255, 13, 26, 196),
+            icon: Icon(Icons.shopping_cart),
+            label: 'Pedidos',
           ),
         ],
       ),
