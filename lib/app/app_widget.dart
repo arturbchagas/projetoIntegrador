@@ -23,9 +23,10 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.appNavigation,
+        initialRoute: AppRoutes.index,
         routes: {
-          AppRoutes.appNavigation: (ctx) => const AppNavitgationStablishment(),
+          AppRoutes.appNavigationStablishment: (ctx) =>
+              const AppNavitgationStablishment(),
           AppRoutes.index: (ctx) => const LoginPage(),
           AppRoutes.register: (ctx) => const RegisterPage(),
           AppRoutes.homeUser: (ctx) => const HomePage(),

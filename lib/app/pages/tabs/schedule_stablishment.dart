@@ -27,16 +27,14 @@ class ScheduleStablishment extends StatelessWidget {
                       SizedBox(width: 100, height: 100, child: AvatarImage())
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                   Column(
                     children: [
                       Text(
-                        "essa tela é de estabelecimento:",
+                        "essa tela é de agendamentos Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      ResearchField()
                     ],
                   )
                 ],

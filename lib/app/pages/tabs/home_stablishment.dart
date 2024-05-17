@@ -30,13 +30,12 @@ class HomeStablishment extends StatelessWidget {
                   SizedBox(height: 20),
                   Column(
                     children: [
+                      SizedBox(height: 30),
                       Text(
-                        "essa tela é de estabelecimento:",
+                        "essa tela é de Empresa:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
-                      ResearchField()
                     ],
                   )
                 ],
