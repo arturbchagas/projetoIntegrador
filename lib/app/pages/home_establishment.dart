@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/research_field.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-  
+class HomeEstablishmentPage extends StatelessWidget {
+  const HomeEstablishmentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,9 @@ class HomePage extends StatelessWidget {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(height: 10),
-                      ResearchField()
+                      ResearchField(),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
