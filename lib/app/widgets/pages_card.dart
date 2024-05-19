@@ -19,28 +19,28 @@ class PageCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: 12.0),
+        margin: const EdgeInsets.only(bottom: 1.0),
         padding: const EdgeInsets.symmetric(
-          vertical: 30.0,
+          vertical: 20.0,
         ),
-        width: MediaQuery.of(context).size.width * 0.6,
+        width: MediaQuery.of(context).size.width * 0.3,
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         ),
         child: Column(
           children: [
             Icon(
               icon,
-              size: 40.0,
+              size: 80.0,
               color: Colors.white,
             ),
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 5.0),
             Text(
               label,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: 10.0,
                 fontWeight: FontWeight.bold,
               ),
             ),

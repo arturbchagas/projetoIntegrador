@@ -29,7 +29,7 @@ class AppWidget extends StatelessWidget {
         initialRoute: AppRoutes.index,
         routes: {
           AppRoutes.appNavigationStablishment: (ctx) =>
-              const AppNavitgationStablishment(),
+              const AppNavigationStablishment(),
           AppRoutes.index: (ctx) => const LoginPage(),
           AppRoutes.register: (ctx) => const RegisterPage(),
           AppRoutes.homeUser: (ctx) => const HomePage(),
