@@ -14,9 +14,9 @@ class UnderlinedText extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-        shadowColor: MaterialStatePropertyAll(Colors.transparent),
-        surfaceTintColor: MaterialStatePropertyAll(Colors.transparent),
+        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+        shadowColor: WidgetStatePropertyAll(Colors.transparent),
+        surfaceTintColor: WidgetStatePropertyAll(Colors.transparent),
       ),
       onPressed: onPressed,
       child: Text(

@@ -10,7 +10,6 @@ import 'package:ijato/app/widgets/underlined_text.dart';
 import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
