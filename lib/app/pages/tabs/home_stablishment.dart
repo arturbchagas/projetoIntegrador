@@ -57,7 +57,7 @@ class HomeStablishment extends StatelessWidget {
                             PageCard(
                               icon: Icons.calendar_month_outlined,
                               label: "Agendamento",
-                              backgroundColor: Color.fromARGB(255, 172, 39, 22),
+                              backgroundColor: const Color.fromARGB(255, 172, 39, 22),
                               onTap: () {
                                 Provider.of<NavigationProvider>(context,
                                         listen: false)
