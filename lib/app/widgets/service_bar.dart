@@ -29,14 +29,28 @@ class WeekDays extends StatelessWidget {
 class ServiceBar extends StatelessWidget {
   Icon icon;
   Icon icon2;
-
   Icon iconOn;
+  WeekDays weekDays;
+  WeekDays weekDays1;
+  WeekDays weekDays2;
+  WeekDays weekDays3;
+  WeekDays weekDays4;
+  WeekDays weekDays5;
+  WeekDays weekDays6;
 
-  ServiceBar(
-      {super.key,
-      required this.icon,
-      required this.icon2,
-      required this.iconOn});
+  ServiceBar({
+    super.key,
+    required this.icon,
+    required this.icon2,
+    required this.iconOn,
+    required this.weekDays,
+    required this.weekDays1,
+    required this.weekDays2,
+    required this.weekDays3,
+    required this.weekDays4,
+    required this.weekDays5,
+    required this.weekDays6,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -60,34 +74,13 @@ class ServiceBar extends StatelessWidget {
               ),
               Row(
                 children: [
-                  WeekDays(
-                    days: "D",
-                    openday: Colors.grey,
-                  ),
-                  WeekDays(
-                    days: "s",
-                    openday: Colors.green,
-                  ),
-                  WeekDays(
-                    days: "T",
-                    openday: Colors.green,
-                  ),
-                  WeekDays(
-                    days: "Q",
-                    openday: Colors.green,
-                  ),
-                  WeekDays(
-                    days: "Q",
-                    openday: Colors.green,
-                  ),
-                  WeekDays(
-                    days: "S",
-                    openday: Colors.green,
-                  ),
-                  WeekDays(
-                    days: "S",
-                    openday: Colors.green,
-                  ),
+                  weekDays,
+                  weekDays1,
+                  weekDays2,
+                  weekDays3,
+                  weekDays4,
+                  weekDays5,
+                  weekDays6,
                 ],
               ),
               const SizedBox(width: 31),

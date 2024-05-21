@@ -1,12 +1,17 @@
 import 'package:flutter/cupertino.dart';
 
-class Avaliation extends StatelessWidget {
+class Avaliation extends StatefulWidget {
   final String number;
   const Avaliation({
     super.key,
     required this.number,
   });
 
+  @override
+  State<Avaliation> createState() => _AvaliationState();
+}
+
+class _AvaliationState extends State<Avaliation> {
   // ignore: empty_constructor_bodies
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class Avaliation extends StatelessWidget {
         borderRadius: BorderRadius.circular(500),
       ),
       child: Text(
-        number,
+        widget.number,
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
       ),
