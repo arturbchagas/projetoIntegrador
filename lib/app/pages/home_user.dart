@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ijato/app/shared/app_images.dart';
+import 'package:ijato/app/widgets/results_bar.dart';
+import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -24,148 +27,147 @@ class HomePage extends StatelessWidget {
         children: [
           const SizedBox(height: 175, child: AppbarHome()),
           SafeArea(
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                      child: const Column(
-                        children: [
-                          SizedBox(height: 20),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SizedBox(
-                                  width: 100, height: 100, child: LogoImage()),
-                              SizedBox(
-                                  width: 100, height: 100, child: AvatarImage())
-                            ],
-                          ),
-                          SizedBox(height: 20),
-                          Column(
-                            children: [
-                              SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  FavoritosBox(),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Expanded(
-                                    child: ResearchField(
-                                      label: 'Buscar lava-jato:',
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: const Column(
+                          children: [
+                            SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                    width: 100,
+                                    height: 100,
+                                    child: LogoImage()),
+                                SizedBox(
+                                    width: 100,
+                                    height: 100,
+                                    child: AvatarImage())
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                            Column(
+                              children: [
+                                SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    FavoritosBox(),
+                                    SizedBox(
+                                      width: 10,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Column(
-                      children: [
-                        Container(
-                          width: 402,
-                          height: 101,
-                          margin: const EdgeInsets.only(
-                              top: 21, right: 13, left: 13),
-                          padding: const EdgeInsets.only(left: 9),
-                          decoration: BoxDecoration(
-                              color: const Color.fromRGBO(174, 174, 174, 1.0),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            children: [
-                              const Row(
-                                children: [
-                                  Icon(
-                                    Icons.location_on,
-                                    color: Colors.black,
-                                    size: 40.0,
-                                    semanticLabel:
-                                        'Text to announce in accessibility modes',
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Text('VipCar:'),
-                                  SizedBox(
-                                    width: 47,
-                                  ),
-                                  Column(
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons
-                                                    .star_rounded, // ícone de estrela
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons
-                                                    .star_rounded, // ícone de estrela
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons
-                                                    .star_rounded, // ícone de estrela
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons
-                                                    .star_rounded, // ícone de estrela
-                                                color: Colors.yellow,
-                                              ),
-                                              Icon(
-                                                Icons
-                                                    .star_rounded, // ícone de estrela
-                                                color: Colors.yellow,
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: ResearchField(
+                                        label: 'Buscar lava-jato:',
                                       ),
-                                    ],
-                                  ),
-                                  SizedBox(width: 11),
-                                  Avaliation(
-                                    number: '4.7',
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Icon(
-                                    Icons.local_car_wash,
-                                    size: 24,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  ServiceBar(
-                                      icon: Icon(Icons.house),
-                                      icon2: Icon(Icons.sync_alt),
-                                      iconOn: Icon(
-                                        Icons.radio_button_on,
-                                        color: Colors.green,
-                                      ))
-                                ],
-                              )
-                            ],
-                          ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ],
-                )
-              ],
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      ResultsBar(
+                          establishmentName: "iJato",
+                          avaliation: Avaliation(number: "5.0"),
+                          serviceBar: ServiceBar(
+                            icon: const Icon(Icons.emoji_transportation),
+                            icon2: const Icon(Icons.sync_alt),
+                            iconOn: const Icon(
+                              Icons.radio_button_checked,
+                              color: Colors.green,
+                            ),
+                            weekDays: WeekDays(
+                              days: "D",
+                              openday: Colors.grey,
+                            ),
+                            weekDays1:
+                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays2:
+                                WeekDays(days: "T", openday: Colors.green),
+                            weekDays3:
+                                WeekDays(days: "Q", openday: Colors.green),
+                            weekDays4:
+                                WeekDays(days: "Q", openday: Colors.green),
+                            weekDays5:
+                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays6:
+                                WeekDays(days: "S", openday: Colors.green),
+                          )),
+                      ResultsBar(
+                          establishmentName: "VipCar",
+                          avaliation: Avaliation(number: "4.9"),
+                          serviceBar: ServiceBar(
+                            icon: const Icon(Icons.house),
+                            icon2: const Icon(Icons.sync_alt),
+                            iconOn: const Icon(
+                              Icons.radio_button_checked,
+                              color: Colors.green,
+                            ),
+                            weekDays: WeekDays(
+                              days: "D",
+                              openday: Colors.green,
+                            ),
+                            weekDays1:
+                                WeekDays(days: "S", openday: Colors.grey),
+                            weekDays2:
+                                WeekDays(days: "T", openday: Colors.green),
+                            weekDays3:
+                                WeekDays(days: "Q", openday: Colors.green),
+                            weekDays4:
+                                WeekDays(days: "Q", openday: Colors.green),
+                            weekDays5:
+                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays6:
+                                WeekDays(days: "S", openday: Colors.green),
+                          )),
+                      ResultsBar(
+                          establishmentName: "FastJato",
+                          avaliation: Avaliation(number: "4.0"),
+                          serviceBar: ServiceBar(
+                            icon: const Icon(Icons.house),
+                            icon2: const Icon(Icons.sync_alt),
+                            iconOn: const Icon(
+                              Icons.radio_button_checked,
+                              color: Colors.red,
+                            ),
+                            weekDays: WeekDays(
+                              days: "D",
+                              openday: Colors.green,
+                            ),
+                            weekDays1:
+                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays2:
+                                WeekDays(days: "T", openday: Colors.green),
+                            weekDays3:
+                                WeekDays(days: "Q", openday: Colors.grey),
+                            weekDays4:
+                                WeekDays(days: "Q", openday: Colors.green),
+                            weekDays5:
+                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays6:
+                                WeekDays(days: "S", openday: Colors.green),
+                          )),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Image.asset(AppImages.mapa),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
