@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static const userType = '/user_type';
   static const homeUser = '/home_user';
   static const establishmentReg = '/establishment_reg';
+  static const homeEstablishment = '/home_establishment';
 }

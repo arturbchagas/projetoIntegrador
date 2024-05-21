@@ -6,4 +6,5 @@ abstract class AppImages {
   static const String circleCheck = 'assets/images/app/circle_check.png';
   //user images
   static const String avatar = 'assets/images/user/avatar.png';
+  static const String mapa = 'assets/images/app/mapa.png';
 }
