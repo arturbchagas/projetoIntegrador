@@ -75,7 +75,7 @@ class UserController with ChangeNotifier {
       Navigator.pushReplacementNamed(context, AppRoutes.homeUser);
     } else if (user.type == UserType.company) {
       Navigator.pushReplacementNamed(
-          context, AppRoutes.appNavigationStablishment);
+          context, AppRoutes.appNavigationEstablishment);
     } else {
       error = 'Credenciais inválidas';
       notifyListeners();

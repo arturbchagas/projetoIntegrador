@@ -4,8 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 
-class RequestsStablishment extends StatelessWidget {
-  const RequestsStablishment({super.key});
+class HomeEstablishment extends StatelessWidget {
+  const HomeEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +26,12 @@ class RequestsStablishment extends StatelessWidget {
                       SizedBox(width: 100, height: 100, child: AvatarImage())
                     ],
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
                   Column(
                     children: [
+                      SizedBox(height: 30),
                       Text(
-                        "essa tela é de Pedidos Estabelecimento:",
+                        "essa tela é de Empresa:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),

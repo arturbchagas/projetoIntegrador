@@ -4,8 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 
-class HomeStablishment extends StatelessWidget {
-  const HomeStablishment({super.key});
+class ScheduleEstablishment extends StatelessWidget {
+  const ScheduleEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +26,11 @@ class HomeStablishment extends StatelessWidget {
                       SizedBox(width: 100, height: 100, child: AvatarImage())
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                   Column(
                     children: [
-                      SizedBox(height: 30),
                       Text(
-                        "essa tela é de Empresa:",
+                        "essa tela é de agendamentos Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
