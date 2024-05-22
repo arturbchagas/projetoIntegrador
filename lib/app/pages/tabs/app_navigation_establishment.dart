@@ -1,33 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/pages/login.dart';
-import 'package:ijato/app/pages/tabs/home_user.dart';
-import 'package:ijato/app/pages/establishment_reg.dart';
-import 'package:ijato/app/pages/tabs/home_stablishment.dart';
-import 'package:ijato/app/pages/register.dart';
-import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
-import 'package:ijato/app/pages/tabs/services_stablishment.dart';
-import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
-import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
-import 'package:ijato/app/pages/user_type.dart';
 
+import 'package:ijato/app/pages/tabs/home_establishment.dart';
+import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
+import 'package:ijato/app/pages/tabs/finances_establishment.dart';
+import 'package:ijato/app/pages/tabs/requests_establishment.dart';
+import 'package:ijato/app/pages/tabs/services_establishment.dart';
 
-class AppNavitgationStablishment extends StatefulWidget {
-  const AppNavitgationStablishment({super.key});
+class AppNavigationEstablishment extends StatefulWidget {
+  const AppNavigationEstablishment({super.key});
 
   @override
-  State<AppNavitgationStablishment> createState() =>
-      _AppNavitgationStablishmentState();
+  State<AppNavigationEstablishment> createState() =>
+      _AppNavigationEstablishmentState();
 }
 
-class _AppNavitgationStablishmentState
-    extends State<AppNavitgationStablishment> {
+class _AppNavigationEstablishmentState
+    extends State<AppNavigationEstablishment> {
   int index = 0;
   final List<Widget> tabs = [
-    const HomeStablishment(),
-    const ScheduleStablishment(),
-    const ServicesStablishment(),
-    const FinancesStablishment(),
-    const RequestsStablishment(),
+    const HomeEstablishment(),
+    const ScheduleEstablishment(),
+    const ServicesEstablishment(),
+    const FinancesEstablishment(),
+    const RequestsEstablishment(),
   ];
 
   void handleTab(int i) {
@@ -49,8 +44,7 @@ class _AppNavitgationStablishmentState
         items: const [
           BottomNavigationBarItem(
             backgroundColor: Color.fromARGB(251, 0, 0, 0),
-            icon: Icon(
-              Icons.home),
+            icon: Icon(Icons.home),
             label: 'Início',
           ),
           BottomNavigationBarItem(

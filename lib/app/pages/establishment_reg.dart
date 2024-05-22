@@ -1,6 +1,7 @@
 /* define um widget EstablishmentReg que representa a tela de registro de estabelecimento */
 
 import 'package:flutter/material.dart';
+
 import 'package:ijato/app/controllers/user_controller.dart';
 import 'package:ijato/app/shared/app_routes.dart';
 
@@ -10,7 +11,6 @@ import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/text_field.dart';
 import 'package:ijato/app/widgets/underlined_text.dart';
-import 'package:ijato/app/controllers/user_controller.dart';
 
 class EstablishmentReg extends StatefulWidget {
   const EstablishmentReg({super.key});
