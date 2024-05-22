@@ -74,7 +74,8 @@ class LoginPage extends StatelessWidget {
                           underlinedText: "Cadastrar-se",
                           onPressed: () {
                             userController.resetsAllFields();
-                            Navigator.pushReplacementNamed(context, AppRoutes.userType);
+                            Navigator.pushReplacementNamed(
+                                context, AppRoutes.userType);
                           },
                         )
                       ],
