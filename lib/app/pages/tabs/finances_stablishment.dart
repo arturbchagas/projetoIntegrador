@@ -12,13 +12,12 @@ class FinancesStablishment extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const SizedBox(height: 175, child: AppbarHome()),
+          const SizedBox(height: 125, child: AppbarHome()),
           SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: const Column(
                 children: [
-                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -53,7 +53,7 @@ class _AppNavigationStablishmentState extends State<AppNavigationStablishment> {
                 activeIcon: Icon(Icons.construction_outlined),
                 backgroundColor: Color.fromARGB(255, 63, 63, 63),
                 icon: Icon(Icons.construction),
-                label: 'Conta',
+                label: 'Serviços',
               ),
               BottomNavigationBarItem(
                 activeIcon: Icon(Icons.monetization_on_outlined),

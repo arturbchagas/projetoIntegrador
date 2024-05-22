@@ -14,10 +14,10 @@ class HomeStablishment extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const SizedBox(height: 90, child: AppbarHome()),
+          const SizedBox(height: 125, child: AppbarHome()),
           SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 1.0),
+              padding: const EdgeInsets.symmetric(horizontal: 2.0),
               child: Column(
                 children: [
                   const Row(
@@ -57,7 +57,8 @@ class HomeStablishment extends StatelessWidget {
                             PageCard(
                               icon: Icons.calendar_month_outlined,
                               label: "Agendamento",
-                              backgroundColor: const Color.fromARGB(255, 172, 39, 22),
+                              backgroundColor:
+                                  const Color.fromARGB(255, 172, 39, 22),
                               onTap: () {
                                 Provider.of<NavigationProvider>(context,
                                         listen: false)
