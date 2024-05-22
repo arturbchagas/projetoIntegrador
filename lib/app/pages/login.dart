@@ -10,10 +10,8 @@ import 'package:ijato/app/widgets/underlined_text.dart';
 import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
 
-import 'package:flutter/cupertino.dart';
-
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -46,13 +44,14 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 30),
                     Text(
                       controller.message,
-                      style: const TextStyle(color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 255, 17, 0), fontSize: 16),
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "e-mail",
                       onChanged: null,
-                      controller: controller.emailInput, 
+                      controller: controller.emailInput,
                     ),
                     const SizedBox(height: 20),
                     TextFieldPrimary(

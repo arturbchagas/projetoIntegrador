@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:ijato/app/pages/establishment_reg.dart';
 import 'package:ijato/app/pages/home_establishment.dart';
 import 'package:ijato/app/pages/home_user.dart';
 import 'package:ijato/app/pages/user_type.dart';
 import 'package:ijato/app/shared/app_routes.dart';
 import 'package:ijato/app/pages/login.dart';
-
-import 'pages/register.dart';
+import 'package:ijato/app/pages/register.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});

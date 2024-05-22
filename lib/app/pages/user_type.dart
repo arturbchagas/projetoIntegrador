@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:ijato/app/shared/app_routes.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
@@ -26,7 +27,7 @@ class UserTypePage extends StatelessWidget {
                     color: Colors.blue,
                     buttonPrimaryName: "Usuario",
                     onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.register);
+                      Navigator.pushNamed(context, AppRoutes.register);
                     },
                   ),
                   const SizedBox(height: 20),
