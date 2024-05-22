@@ -4,14 +4,14 @@ class TextFieldPrimary extends StatelessWidget {
   final String textFieldName;
   final Function(String)? onChanged;
   final TextEditingController? controller;
-  final obscureText;
+  final obscureText; // <- sem utilização?
 
   const TextFieldPrimary({
     super.key,
     required this.textFieldName,
     this.onChanged,
     this.controller,
-    this.obscureText= false,
+    this.obscureText = false,
   });
 
   @override

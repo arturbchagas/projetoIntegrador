@@ -1,4 +1,3 @@
-
 import 'package:ijato/app/models/user_company.dart';
 
 abstract class UserMock {
@@ -6,7 +5,7 @@ abstract class UserMock {
     UserCompany(
       '1',
       'Ednario Andrade',
-      'admin@admin.com',
+      'admincompany@admin.com',
       '************a',
       'pass',
     ),

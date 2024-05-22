@@ -1,8 +1,8 @@
 /* Este é o controlador que gerencia o estado e a lógica relacionados aos usuários.
    Este controlador está lidando com a lógica de autenticação e registro de usuários . */
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:ijato/app/models/user.dart';
 import 'package:ijato/app/mock/users.dart';
 import 'package:ijato/app/shared/app_routes.dart';
@@ -72,7 +72,6 @@ class UserController extends GetxController {
   void login(BuildContext context) {
     resetsAllFields();
     Navigator.pushNamed(context, AppRoutes.homeUser);
-
   }
 
   void resetsAllFields() {
@@ -84,4 +83,3 @@ class UserController extends GetxController {
     confirmPassInput.text = "";
   }
 }
-
