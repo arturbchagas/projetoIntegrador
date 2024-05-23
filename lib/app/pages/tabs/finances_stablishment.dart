@@ -29,25 +29,25 @@ class _FinancesStablishmentState extends State<FinancesStablishment> {
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: Column(
                 children: [
-                  SizedBox(height: 20),
-                  Row(
+                  const SizedBox(height: 20),
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(width: 100, height: 100, child: LogoImage()),
                       SizedBox(width: 100, height: 100, child: AvatarImage())
                     ],
                   ),
-                  SizedBox(height: 80),
+                  const SizedBox(height: 80),
                   Column(
                     children: [
-                      Text(
-                        "Rascunho da Tela Financeira Diária do App",
+                      const Text(
+                        "Rascunh da Tela Financeira Diária do App",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: "Entrada",
                           hintText: "Digite o valor das receitas",
                         ),
@@ -58,7 +58,7 @@ class _FinancesStablishmentState extends State<FinancesStablishment> {
                         },
                       ),
                       TextFormField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: "Saída",
                           hintText: "Digite o valor das despesas",
                         ),
@@ -68,13 +68,13 @@ class _FinancesStablishmentState extends State<FinancesStablishment> {
                           });
                         },
                       ),
-                      SizedBox(height: 40),
+                      const SizedBox(height: 40),
                       Text(
                         "Saldo: R\$ ${saldo.toStringAsFixed(2)}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -82,13 +82,13 @@ class _FinancesStablishmentState extends State<FinancesStablishment> {
                             onPressed: () {
                               // Ação do botão (por exemplo, exibir balanço mensal)
                             },
-                            child: Text("Balanço Mensal"),
+                            child: const Text("Balanço Mensal"),
                           ),
                           ElevatedButton(
                             onPressed: () {
                               // Ação do botão (por exemplo, reservar para investimento)
                             },
-                            child: Text("Reservado para Investimento"),
+                            child: const Text("Reservado para Investimento"),
                           ),
                         ],
                       ),
