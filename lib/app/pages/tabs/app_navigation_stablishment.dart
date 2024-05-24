@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/pages/login.dart';
-import 'package:ijato/app/pages/tabs/home_user.dart';
-import 'package:ijato/app/pages/establishment_reg.dart';
 import 'package:ijato/app/pages/tabs/home_stablishment.dart';
-import 'package:ijato/app/pages/register.dart';
 import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
 import 'package:ijato/app/pages/tabs/services_stablishment.dart';
 import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
 import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
-import 'package:ijato/app/pages/user_type.dart';
-
+import 'package:ijato/app/widgets/appbar_home.dart';
 
 class AppNavitgationStablishment extends StatefulWidget {
   const AppNavitgationStablishment({super.key});
@@ -39,6 +34,7 @@ class _AppNavitgationStablishmentState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppbarHome(),
       body: SafeArea(
         child: tabs[index],
       ),
@@ -49,8 +45,7 @@ class _AppNavitgationStablishmentState
         items: const [
           BottomNavigationBarItem(
             backgroundColor: Color.fromARGB(251, 0, 0, 0),
-            icon: Icon(
-              Icons.home),
+            icon: Icon(Icons.home),
             label: 'Início',
           ),
           BottomNavigationBarItem(

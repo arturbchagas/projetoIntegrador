@@ -1,4 +1,3 @@
-import 'package:ijato/app/pages/tabs/services_stablishment.dart';
 
 abstract class AppRoutes {
   static const index = '/login';
