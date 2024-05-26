@@ -29,7 +29,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.index,
+        initialRoute: AppRoutes.appNavigationEstablishment,
         routes: {
           AppRoutes.appNavigationEstablishment: (ctx) =>
               const AppNavigationEstablishment(),

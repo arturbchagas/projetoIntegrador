@@ -5,6 +5,7 @@ import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
 import 'package:ijato/app/pages/tabs/finances_establishment.dart';
 import 'package:ijato/app/pages/tabs/requests_establishment.dart';
 import 'package:ijato/app/pages/tabs/services_establishment.dart';
+import 'package:ijato/app/widgets/app_scaffold.dart';
 
 class AppNavigationEstablishment extends StatefulWidget {
   const AppNavigationEstablishment({super.key});
@@ -19,10 +20,10 @@ class _AppNavigationEstablishmentState
   int index = 0;
   final List<Widget> tabs = [
     const HomeEstablishment(),
+    const RequestsEstablishment(),
     const ScheduleEstablishment(),
     const ServicesEstablishment(),
     const FinancesEstablishment(),
-    const RequestsEstablishment(),
   ];
 
   void handleTab(int i) {
@@ -33,7 +34,7 @@ class _AppNavigationEstablishmentState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AppScaffold(
       body: SafeArea(
         child: tabs[index],
       ),
