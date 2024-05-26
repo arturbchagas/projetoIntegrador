@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/pages/tabs/home_stablishment.dart';
-import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
-import 'package:ijato/app/pages/tabs/services_stablishment.dart';
-import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
-import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
-import 'package:ijato/app/widgets/appbar_home.dart';
 
-class AppNavitgationStablishment extends StatefulWidget {
-  const AppNavitgationStablishment({super.key});
+import 'package:ijato/app/pages/tabs/home_establishment.dart';
+import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
+import 'package:ijato/app/pages/tabs/finances_establishment.dart';
+import 'package:ijato/app/pages/tabs/requests_establishment.dart';
+import 'package:ijato/app/pages/tabs/services_establishment.dart';
+import 'package:ijato/app/widgets/app_scaffold.dart';
+
+class AppNavigationEstablishment extends StatefulWidget {
+  const AppNavigationEstablishment({super.key});
 
   @override
-  State<AppNavitgationStablishment> createState() =>
-      _AppNavitgationStablishmentState();
+  State<AppNavigationEstablishment> createState() =>
+      _AppNavigationEstablishmentState();
 }
 
-class _AppNavitgationStablishmentState
-    extends State<AppNavitgationStablishment> {
+class _AppNavigationEstablishmentState
+    extends State<AppNavigationEstablishment> {
   int index = 0;
   final List<Widget> tabs = [
-    const HomeStablishment(),
-    const ScheduleStablishment(),
-    const ServicesStablishment(),
-    const FinancesStablishment(),
-    const RequestsStablishment(),
+    const HomeEstablishment(),
+    const RequestsEstablishment(),
+    const ScheduleEstablishment(),
+    const ServicesEstablishment(),
+    const FinancesEstablishment(),
   ];
 
   void handleTab(int i) {
@@ -33,8 +34,7 @@ class _AppNavitgationStablishmentState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppbarHome(),
+    return AppScaffold(
       body: SafeArea(
         child: tabs[index],
       ),

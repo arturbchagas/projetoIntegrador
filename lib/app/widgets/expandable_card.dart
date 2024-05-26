@@ -41,7 +41,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isCardExpanded = false;
+          isCardExpanded = true;
         });
       },
       child: Card(

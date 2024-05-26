@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/widgets/ExpandableCard.dart';
-import 'package:ijato/app/widgets/app_scaffold.dart';
+import 'package:ijato/app/widgets/expandable_card.dart';
 
-class RequestsStablishment extends StatelessWidget {
-  const RequestsStablishment({super.key});
+class RequestsEstablishment extends StatelessWidget {
+  const RequestsEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold(
+    return Scaffold(
       body: Stack(
         children: [
           SafeArea(

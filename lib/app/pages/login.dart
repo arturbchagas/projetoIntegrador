@@ -10,15 +10,25 @@ import 'package:ijato/app/widgets/underlined_text.dart';
 import 'package:ijato/app/widgets/check_box.dart';
 import 'package:ijato/app/widgets/button_primary.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
     final userController = Provider.of<UserController>(context);
+
+    void setMessage() {
+      setState(() {
+        userController.error;
+      });
+    }
 
     return Scaffold(
       body: Stack(
@@ -74,7 +84,8 @@ class LoginPage extends StatelessWidget {
                           underlinedText: "Cadastrar-se",
                           onPressed: () {
                             userController.resetsAllFields();
-                            Navigator.pushReplacementNamed(context, AppRoutes.userType);
+                            Navigator.pushReplacementNamed(
+                                context, AppRoutes.userType);
                           },
                         )
                       ],
@@ -84,6 +95,7 @@ class LoginPage extends StatelessWidget {
                       color: Colors.blue,
                       buttonPrimaryName: "Entrar",
                       onPressed: () {
+                        setMessage();
                         userController.tryToLogin(context);
                       },
                     ),

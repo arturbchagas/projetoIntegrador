@@ -22,7 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _setMessage() {
     setState(() {
-      controller.message;
+      controller.error;
     });
   }
 
@@ -42,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     const LogoImage(),
                     const SizedBox(height: 15),
                     Text(
-                      controller.message,
+                      controller.error,
                       style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
                     const SizedBox(height: 15),
