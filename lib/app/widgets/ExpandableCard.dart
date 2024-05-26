@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:ijato/app/widgets/text_primary.dart';
 
 class ExpandableCard extends StatefulWidget {
   final String date;
   final String time;
-  final String status;
   final String name;
   final String vehicle;
   final String brand;
   final String model;
   final String plate;
   final String service;
+  final String statusConfirmado;
+  final String statusTerminado;
 
   const ExpandableCard({
     super.key,
     required this.date,
     required this.time,
-    required this.status,
     required this.name,
     required this.vehicle,
     required this.brand,
     required this.model,
     required this.plate,
     required this.service,
+    required this.statusConfirmado,
+    required this.statusTerminado,
   });
 
   @override
@@ -30,6 +33,9 @@ class ExpandableCard extends StatefulWidget {
 
 class _ExpandableCardState extends State<ExpandableCard> {
   bool isCardExpanded = false;
+  bool isConfirmButtonVisible = false;
+  bool isConfirmButtonVisibleAceitar = false;
+  bool isConfirmButtonVisibleRecusar = false;
 
   Widget _renderItem() {
     return GestureDetector(
@@ -60,22 +66,48 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         ),
                       ]),
                   const SizedBox(width: 60),
-                  const Icon(Icons.directions_car, size: 45.0),
-                  const Spacer(),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0,
-                      vertical: 6.0,
-                    ),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 9, 122, 13),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Text(
-                      widget.status,
-                      style: const TextStyle(color: Colors.white),
-                    ),
+                  const Column(
+                    children: [
+                      SizedBox(height: 10.0),
+                      Icon(Icons.directions_car, size: 45.0),
+                      Icon(
+                        Icons.arrow_drop_down_outlined,
+                        size: 30.0,
+                      ),
+                    ],
                   ),
+                  const Spacer(flex: 8),
+                  if (isConfirmButtonVisibleAceitar)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 8.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 9, 122, 13),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: Text(
+                        widget.statusConfirmado,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  if (isConfirmButtonVisibleRecusar)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 8.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 181, 0, 0),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      child: const Text(
+                        "Recusado",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  const Spacer(),
                 ],
               ),
             ],
@@ -94,9 +126,9 @@ class _ExpandableCardState extends State<ExpandableCard> {
       },
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 4),
-        color: Color.fromRGBO(172, 172, 172, 1),
+        color: const Color.fromRGBO(172, 172, 172, 1),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -107,37 +139,149 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     children: [
                       Text(
                         widget.time,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 20.0, fontWeight: FontWeight.bold),
                       ),
+                      const SizedBox(height: 8),
+                      TextPrimary(textName: 'Nome: ${widget.name}'),
+                      TextPrimary(textName: 'Veículo: ${widget.vehicle}'),
+                      TextPrimary(textName: 'Marca: ${widget.brand}'),
+                      TextPrimary(textName: 'Modelo: ${widget.model}'),
+                      TextPrimary(textName: 'Placa: ${widget.plate}'),
+                      TextPrimary(textName: 'Serviço: ${widget.service}'),
                     ],
                   ),
-                  const SizedBox(width: 70),
-                  const Icon(Icons.directions_car, size: 40.0),
+                  const SizedBox(width: 40),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: const Icon(
+                      Icons.directions_car,
+                      size: 90.0,
+                    ),
+                  ),
                   const Spacer(),
                 ],
               ),
-              const SizedBox(height: 8),
-              Text('Nome: ${widget.name}'),
-              Text('Veículo: ${widget.vehicle}'),
-              Text('Marca: ${widget.brand}'),
-              Text('Modelo: ${widget.model}'),
-              Text('Placa: ${widget.plate}'),
-              Text('Serviço: ${widget.service}'),
-              const SizedBox(height: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                  vertical: 6.0,
+              const SizedBox(height: 11.0),
+              if (!isConfirmButtonVisible)
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isConfirmButtonVisibleRecusar = true;
+                              isConfirmButtonVisible = true;
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 8.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(195, 0, 0, 1),
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(color: Colors.black),
+                            ),
+                            child: const Text(
+                              "Recusar",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 30),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              isConfirmButtonVisibleAceitar = true;
+                              isConfirmButtonVisible = true;
+                            });
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 8.0,
+                            ),
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(24, 22, 148, 1),
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(color: Colors.black),
+                            ),
+                            child: const Text(
+                              "Aceitar",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Icon(
+                      Icons.arrow_drop_up_outlined,
+                      size: 30.0,
+                    ),
+                  ],
                 ),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 9, 122, 13),
-                  borderRadius: BorderRadius.circular(8.0),
+              if (isConfirmButtonVisibleAceitar)
+                Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        width: 124,
+                        height: 31,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                          vertical: 6.0,
+                        ),
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 9, 122, 13),
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(color: Colors.black)),
+                        child: Text(
+                          widget.statusConfirmado,
+                          style: const TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_drop_up_outlined,
+                        size: 30.0,
+                      ),
+                    ],
+                  ),
                 ),
-                child: Text(
-                  widget.status,
-                  style: const TextStyle(color: Colors.white),
+              if (isConfirmButtonVisibleRecusar)
+                Center(
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        width: 124,
+                        height: 31,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10.0,
+                          vertical: 6.0,
+                        ),
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 213, 0, 0),
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(color: Colors.black)),
+                        child: const Text(
+                          "Recusado",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                      const Icon(
+                        Icons.arrow_drop_up_outlined,
+                        size: 30.0,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),
