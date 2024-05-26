@@ -17,12 +17,13 @@ class RequestsStablishment extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 10),
                     const Text(
                       "Solicitações de Agendamento:",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
+
                     const SizedBox(height: 20),
 
                     Container(
@@ -45,7 +46,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -56,7 +58,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -67,7 +70,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -78,7 +82,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -89,7 +94,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -100,7 +106,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -111,7 +118,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -122,7 +130,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -133,7 +142,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                           ExpandableCard(
                             date: "30/05/2024",
@@ -144,18 +154,8 @@ class RequestsStablishment extends StatelessWidget {
                             model: "Siena",
                             plate: "OSF-0240",
                             service: "Higienização completa",
-                            status: "confirmado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            status: "confirmado",
+                            statusConfirmado: "Confirmado",
+                            statusRecusado: "Recusado",
                           ),
                         ],
                       ),

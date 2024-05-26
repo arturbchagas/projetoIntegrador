@@ -11,7 +11,7 @@ class ExpandableCard extends StatefulWidget {
   final String plate;
   final String service;
   final String statusConfirmado;
-  final String statusTerminado;
+  final String statusRecusado;
 
   const ExpandableCard({
     super.key,
@@ -24,7 +24,7 @@ class ExpandableCard extends StatefulWidget {
     required this.plate,
     required this.service,
     required this.statusConfirmado,
-    required this.statusTerminado,
+    required this.statusRecusado,
   });
 
   @override
@@ -41,18 +41,19 @@ class _ExpandableCardState extends State<ExpandableCard> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isCardExpanded = true;
+          isCardExpanded = false;
         });
       },
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 4),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(5.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
+                  const Spacer(flex: 2),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -65,7 +66,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ]),
-                  const SizedBox(width: 60),
+                  const Spacer(flex: 6),
                   const Column(
                     children: [
                       SizedBox(height: 10.0),
@@ -77,6 +78,22 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     ],
                   ),
                   const Spacer(flex: 8),
+                  if (!isConfirmButtonVisible)
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0,
+                        vertical: 8.0,
+                      ),
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 208, 215, 2),
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(color: Colors.black),
+                      ),
+                      child: const Text(
+                        "Pendente",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   if (isConfirmButtonVisibleAceitar)
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -86,21 +103,25 @@ class _ExpandableCardState extends State<ExpandableCard> {
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 9, 122, 13),
                         borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(color: Colors.black),
                       ),
                       child: Text(
                         widget.statusConfirmado,
-                        style: const TextStyle(color: Colors.white),
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   if (isConfirmButtonVisibleRecusar)
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0,
+                        horizontal: 18.0,
                         vertical: 8.0,
                       ),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 181, 0, 0),
                         borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(color: Colors.black),
                       ),
                       child: const Text(
                         "Recusado",
@@ -180,7 +201,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
+                              horizontal: 25.0,
                               vertical: 8.0,
                             ),
                             decoration: BoxDecoration(
@@ -204,7 +225,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
+                              horizontal: 30.0,
                               vertical: 8.0,
                             ),
                             decoration: BoxDecoration(
