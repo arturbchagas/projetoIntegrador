@@ -9,7 +9,7 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppbarHome(),
+      appBar: const AppbarHome(),
       body: body,
     );
   }
