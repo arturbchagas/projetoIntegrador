@@ -4,8 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 
-class FinancesStablishment extends StatelessWidget {
-  const FinancesStablishment({super.key});
+class RequestsEstablishment extends StatelessWidget {
+  const RequestsEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class FinancesStablishment extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "essa tela é de Finanças Estabelecimento:",
+                        "essa tela é de Pedidos Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),

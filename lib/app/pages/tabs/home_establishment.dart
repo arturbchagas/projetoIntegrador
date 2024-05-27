@@ -6,8 +6,8 @@ import 'package:ijato/app/widgets/logo.dart';
 import 'package:ijato/app/widgets/pages_card.dart';
 import 'package:provider/provider.dart';
 
-class HomeStablishment extends StatelessWidget {
-  const HomeStablishment({super.key});
+class HomeEstablishment extends StatelessWidget {
+  const HomeEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {

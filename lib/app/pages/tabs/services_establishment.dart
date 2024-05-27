@@ -4,8 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 
-class ServicesStablishment extends StatelessWidget {
-  const ServicesStablishment({super.key});
+class ServicesEstablishment extends StatelessWidget {
+  const ServicesEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:ijato/app/controllers/user_controller.dart';
 import 'package:ijato/app/pages/establishment_reg.dart';
-import 'package:ijato/app/pages/tabs/home_stablishment.dart';
+import 'package:ijato/app/pages/tabs/home_establishment.dart';
 import 'package:ijato/app/pages/tabs/home_user.dart';
-import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
+import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
 import 'package:ijato/app/pages/user_type.dart';
 import 'package:ijato/app/shared/app_routes.dart';
-import 'package:ijato/app/pages/tabs/app_navigation_stablishment.dart';
+import 'package:ijato/app/pages/tabs/app_navigation_establishment.dart';
 import 'package:ijato/app/pages/login.dart';
-import 'package:ijato/app/pages/tabs/services_stablishment.dart';
-import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
-import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
+import 'package:ijato/app/pages/tabs/services_establishment.dart';
+import 'package:ijato/app/pages/tabs/finances_establishment.dart';
+import 'package:ijato/app/pages/tabs/requests_establishment.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/register.dart';
@@ -28,18 +28,22 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: AppRoutes.index,
         routes: {
-          AppRoutes.appNavigationStablishment: (ctx) =>
-              const AppNavigationStablishment(),
+          AppRoutes.appNavigationEstablishment: (ctx) =>
+              const AppNavigationEstablishment(),
           AppRoutes.index: (ctx) => const LoginPage(),
           AppRoutes.register: (ctx) => const RegisterPage(),
           AppRoutes.homeUser: (ctx) => const HomePage(),
-          AppRoutes.homeStablishment: (ctx) => const HomeStablishment(),
+          AppRoutes.homeEstablishment: (ctx) => const HomeEstablishment(),
           AppRoutes.userType: (ctx) => const UserTypePage(),
           AppRoutes.establishmentReg: (ctx) => const EstablishmentReg(),
-          AppRoutes.scheduleStablishment: (ctx) => const ScheduleStablishment(),
-          AppRoutes.servicesStablishment: (ctx) => const ServicesStablishment(),
-          AppRoutes.financesStablishment: (ctx) => const FinancesStablishment(),
-          AppRoutes.requestsStablishment: (ctx) => const RequestsStablishment(),
+          AppRoutes.scheduleEstablishment: (ctx) =>
+              const ScheduleEstablishment(),
+          AppRoutes.servicesEstablishment: (ctx) =>
+              const ServicesEstablishment(),
+          AppRoutes.financesEstablishment: (ctx) =>
+              const FinancesEstablishment(),
+          AppRoutes.requestsEstablishment: (ctx) =>
+              const RequestsEstablishment(),
         },
       ),
     );

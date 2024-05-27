@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/pages/tabs/home_stablishment.dart';
-import 'package:ijato/app/pages/tabs/schedule_stablishment.dart';
-import 'package:ijato/app/pages/tabs/services_stablishment.dart';
-import 'package:ijato/app/pages/tabs/finances_stablishment.dart';
-import 'package:ijato/app/pages/tabs/requests_stablishment.dart';
+import 'package:ijato/app/pages/tabs/home_establishment.dart';
+import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
+import 'package:ijato/app/pages/tabs/services_establishment.dart';
+import 'package:ijato/app/pages/tabs/finances_establishment.dart';
+import 'package:ijato/app/pages/tabs/requests_establishment.dart';
 import 'package:ijato/app/shared/navigation_provider.dart';
 import 'package:provider/provider.dart';
 
-class AppNavigationStablishment extends StatefulWidget {
-  const AppNavigationStablishment({super.key});
+class AppNavigationEstablishment extends StatefulWidget {
+  const AppNavigationEstablishment({super.key});
 
   @override
-  _AppNavigationStablishmentState createState() =>
-      _AppNavigationStablishmentState();
+  _AppNavigationEstablishmentState createState() =>
+      _AppNavigationEstablishmentState();
 }
 
-class _AppNavigationStablishmentState extends State<AppNavigationStablishment> {
+class _AppNavigationEstablishmentState
+    extends State<AppNavigationEstablishment> {
   final List<Widget> _pages = [
-    const HomeStablishment(),
-    const ScheduleStablishment(),
-    const ServicesStablishment(),
-    const FinancesStablishment(),
-    const RequestsStablishment(),
+    const HomeEstablishment(),
+    const ScheduleEstablishment(),
+    const ServicesEstablishment(),
+    const FinancesEstablishment(),
+    const RequestsEstablishment(),
   ];
 
   @override

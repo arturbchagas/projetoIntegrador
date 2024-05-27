@@ -4,8 +4,8 @@ import 'package:ijato/app/widgets/appbar_home.dart';
 import 'package:ijato/app/widgets/avatar.dart';
 import 'package:ijato/app/widgets/logo.dart';
 
-class RequestsStablishment extends StatelessWidget {
-  const RequestsStablishment({super.key});
+class ScheduleEstablishment extends StatelessWidget {
+  const ScheduleEstablishment({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class RequestsStablishment extends StatelessWidget {
                   Column(
                     children: [
                       Text(
-                        "essa tela é de Pedidos Estabelecimento:",
+                        "essa tela é de agendamentos Estabelecimento:",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
