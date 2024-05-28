@@ -15,6 +15,7 @@ import 'package:ijato/app/pages/login.dart';
 import 'package:ijato/app/pages/tabs/services_establishment.dart';
 import 'package:ijato/app/pages/tabs/finances_establishment.dart';
 import 'package:ijato/app/pages/tabs/requests_establishment.dart';
+import 'package:ijato/app/pages/tabs/profile_establishment.dart';
 
 import 'pages/register.dart';
 
@@ -29,7 +30,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.index,
+        initialRoute: AppRoutes.profileEstablishment,
         routes: {
           AppRoutes.appNavigationEstablishment: (ctx) =>
               const AppNavigationEstablishment(),
@@ -39,6 +40,7 @@ class AppWidget extends StatelessWidget {
           AppRoutes.homeEstablishment: (ctx) => const HomeEstablishment(),
           AppRoutes.userType: (ctx) => const UserTypePage(),
           AppRoutes.establishmentReg: (ctx) => const EstablishmentReg(),
+          AppRoutes.profileEstablishment: (ctx) => const ProfileEstablishment(),
           AppRoutes.scheduleEstablishment: (ctx) =>
               const ScheduleEstablishment(),
           AppRoutes.servicesEstablishment: (ctx) =>
