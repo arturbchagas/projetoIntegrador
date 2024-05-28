@@ -26,38 +26,44 @@ class RequestsEstablishment extends StatelessWidget {
             child: Container(
               height: MediaQuery.of(context).size.height,
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const SizedBox(height: 10),
-                    const Text(
-                      "Solicitações de Agendamento:",
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                        color: const Color.fromRGBO(217, 217, 217, 1),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0,
-                        vertical: 20.0,
-                      ),
+              child: Column(
+                children: [
+                  const SizedBox(height: 10),
+                  const Text(
+                    "Solicitações de Agendamento:",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
                       child: Column(
-                          children: mapIndexed(solicitationController.services,
-                              (index, service) {
-                        return ExpandableCard(service: service, index: index);
-                      }).toList()),
-                    ),
+                        children: [
+                          const SizedBox(height: 20),
 
-                    const SizedBox(height: 20),
-                    // Adicione mais ExpandableCard se necessário
-                  ],
-                ),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              color: const Color.fromRGBO(217, 217, 217, 1),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0,
+                              vertical: 20.0,
+                            ),
+                            child: Column(
+                                children:
+                                    mapIndexed(solicitationController.services,
+                                        (index, service) {
+                              return ExpandableCard(
+                                  service: service, index: index);
+                            }).toList()),
+                          ),
+
+                          const SizedBox(height: 20),
+                          // Adicione mais ExpandableCard se necessário
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

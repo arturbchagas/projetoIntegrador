@@ -161,11 +161,13 @@ class _ExpandableCardState extends State<ExpandableCard> {
                   const SizedBox(width: 40),
                   Container(
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: const Icon(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Icon(
                       Icons.directions_car,
-                      size: 90.0,
+                      size: MediaQuery.of(context).size.width *
+                          0.2,
                     ),
                   ),
                   const Spacer(),

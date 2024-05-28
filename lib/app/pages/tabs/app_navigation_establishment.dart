@@ -20,10 +20,10 @@ class _AppNavigationEstablishmentState
   int index = 0;
   final List<Widget> tabs = [
     const HomeEstablishment(),
-    const RequestsEstablishment(),
     const ScheduleEstablishment(),
     const ServicesEstablishment(),
     const FinancesEstablishment(),
+    const RequestsEstablishment(),
   ];
 
   void handleTab(int i) {
