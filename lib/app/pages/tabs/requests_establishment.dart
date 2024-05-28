@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:ijato/app/controllers/solicitation_controller.dart';
 import 'package:ijato/app/widgets/expandable_card.dart';
+import 'package:provider/provider.dart';
 
 class RequestsEstablishment extends StatelessWidget {
   const RequestsEstablishment({super.key});
 
+  Iterable<E> mapIndexed<E, T>(
+      Iterable<T> items, E Function(int index, T item) f) sync* {
+    var index = 0;
+
+    for (final item in items) {
+      yield f(index, item);
+      index = index + 1;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final solicitationController = Provider.of<SolicitationController>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -34,130 +47,11 @@ class RequestsEstablishment extends StatelessWidget {
                         horizontal: 20.0,
                         vertical: 20.0,
                       ),
-                      child: const Column(
-                        children: [
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                          ExpandableCard(
-                            date: "30/05/2024",
-                            time: "08:00 às 09:00",
-                            name: "Vinicius Sobreira",
-                            vehicle: "Carro",
-                            brand: "Fiat",
-                            model: "Siena",
-                            plate: "OSF-0240",
-                            service: "Higienização completa",
-                            statusConfirmado: "Confirmado",
-                            statusRecusado: "Recusado",
-                          ),
-                        ],
-                      ),
+                      child: Column(
+                          children: mapIndexed(solicitationController.services,
+                              (index, service) {
+                        return ExpandableCard(service: service, index: index);
+                      }).toList()),
                     ),
 
                     const SizedBox(height: 20),
