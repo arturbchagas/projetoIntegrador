@@ -78,14 +78,17 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         style: const TextStyle(color: Colors.white),
                       ),
                     ),
-                  if (widget.service.status == ServiceStatus.confirmed)
+                  if (widget.service.status == ServiceStatus.confirmed ||
+                      widget.service.status == ServiceStatus.canceled)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12.0,
                         vertical: 8.0,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 9, 122, 13),
+                        color: widget.service.status == ServiceStatus.confirmed
+                            ? const Color.fromARGB(255, 9, 122, 13)
+                            : const Color.fromARGB(255, 181, 0, 0),
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(color: Colors.black),
                       ),
@@ -94,22 +97,6 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         style: const TextStyle(
                           color: Colors.white,
                         ),
-                      ),
-                    ),
-                  if (widget.service.status == ServiceStatus.canceled)
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 18.0,
-                        vertical: 8.0,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 181, 0, 0),
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Text(
-                        widget.service.statusDisplay(),
-                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   const Spacer(),
@@ -166,15 +153,15 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     ),
                     child: Icon(
                       Icons.directions_car,
-                      size: MediaQuery.of(context).size.width *
-                          0.2,
+                      size: MediaQuery.of(context).size.width * 0.2,
                     ),
                   ),
                   const Spacer(),
                 ],
               ),
               const SizedBox(height: 11.0),
-              if (widget.service.status != ServiceStatus.confirmed)
+              if (widget.service.status != ServiceStatus.confirmed &&
+                  widget.service.status != ServiceStatus.canceled)
                 Column(
                   children: [
                     Row(
@@ -185,7 +172,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                             controller.changeStatus(
                                 widget.index, ServiceStatus.canceled);
                             setState(() {
-                              isCardExpanded = false;
+                              isCardExpanded = true;
                             });
                           },
                           child: Container(
@@ -210,7 +197,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                             controller.changeStatus(
                                 widget.index, ServiceStatus.confirmed);
                             setState(() {
-                              isCardExpanded = false;
+                              isCardExpanded = true;
                             });
                           },
                           child: Container(
@@ -237,7 +224,8 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     ),
                   ],
                 ),
-              if (widget.service.status == ServiceStatus.confirmed)
+              if (widget.service.status == ServiceStatus.confirmed ||
+                  widget.service.status == ServiceStatus.canceled)
                 Center(
                   child: Column(
                     children: [
@@ -250,7 +238,10 @@ class _ExpandableCardState extends State<ExpandableCard> {
                           vertical: 6.0,
                         ),
                         decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 9, 122, 13),
+                            color:
+                                widget.service.status == ServiceStatus.confirmed
+                                    ? const Color.fromARGB(255, 9, 122, 13)
+                                    : const Color.fromARGB(255, 181, 0, 0),
                             borderRadius: BorderRadius.circular(8.0),
                             border: Border.all(color: Colors.black)),
                         child: Text(
