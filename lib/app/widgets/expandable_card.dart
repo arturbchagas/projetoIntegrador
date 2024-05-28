@@ -1,30 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:ijato/app/controllers/solicitation_controller.dart';
+import 'package:ijato/app/models/service.dart';
 import 'package:ijato/app/widgets/text_primary.dart';
+import 'package:provider/provider.dart';
 
 class ExpandableCard extends StatefulWidget {
-  final String date;
-  final String time;
-  final String name;
-  final String vehicle;
-  final String brand;
-  final String model;
-  final String plate;
-  final String service;
-  final String statusConfirmado;
-  final String statusRecusado;
+  final Service service;
+  final int index;
 
   const ExpandableCard({
     super.key,
-    required this.date,
-    required this.time,
-    required this.name,
-    required this.vehicle,
-    required this.brand,
-    required this.model,
-    required this.plate,
     required this.service,
-    required this.statusConfirmado,
-    required this.statusRecusado,
+    required this.index,
   });
 
   @override
@@ -33,11 +20,8 @@ class ExpandableCard extends StatefulWidget {
 
 class _ExpandableCardState extends State<ExpandableCard> {
   bool isCardExpanded = false;
-  bool isConfirmButtonVisible = false;
-  bool isConfirmButtonVisibleAceitar = false;
-  bool isConfirmButtonVisibleRecusar = false;
 
-  Widget _renderItem() {
+  Widget _renderItem(SolicitationController controller) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -58,11 +42,11 @@ class _ExpandableCardState extends State<ExpandableCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.date,
+                          widget.service.date,
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          widget.time,
+                          widget.service.time,
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ]),
@@ -78,7 +62,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     ],
                   ),
                   const Spacer(flex: 8),
-                  if (!isConfirmButtonVisible)
+                  if (widget.service.status == ServiceStatus.pending)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 20.0,
@@ -89,12 +73,12 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(color: Colors.black),
                       ),
-                      child: const Text(
-                        "Pendente",
-                        style: TextStyle(color: Colors.white),
+                      child: Text(
+                        widget.service.statusDisplay(),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
-                  if (isConfirmButtonVisibleAceitar)
+                  if (widget.service.status == ServiceStatus.confirmed)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 12.0,
@@ -106,13 +90,13 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         border: Border.all(color: Colors.black),
                       ),
                       child: Text(
-                        widget.statusConfirmado,
+                        widget.service.statusDisplay(),
                         style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
                     ),
-                  if (isConfirmButtonVisibleRecusar)
+                  if (widget.service.status == ServiceStatus.canceled)
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 18.0,
@@ -123,9 +107,9 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         borderRadius: BorderRadius.circular(8.0),
                         border: Border.all(color: Colors.black),
                       ),
-                      child: const Text(
-                        "Recusado",
-                        style: TextStyle(color: Colors.white),
+                      child: Text(
+                        widget.service.statusDisplay(),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   const Spacer(),
@@ -138,7 +122,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
     );
   }
 
-  Widget _renderExpandedItem() {
+  Widget _renderExpandedItem(SolicitationController controller) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -159,17 +143,19 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.time,
+                        widget.service.time,
                         style: const TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
-                      TextPrimary(textName: 'Nome: ${widget.name}'),
-                      TextPrimary(textName: 'Veículo: ${widget.vehicle}'),
-                      TextPrimary(textName: 'Marca: ${widget.brand}'),
-                      TextPrimary(textName: 'Modelo: ${widget.model}'),
-                      TextPrimary(textName: 'Placa: ${widget.plate}'),
-                      TextPrimary(textName: 'Serviço: ${widget.service}'),
+                      TextPrimary(textName: 'Nome: ${widget.service.name}'),
+                      TextPrimary(
+                          textName: 'Veículo: ${widget.service.vehicle}'),
+                      TextPrimary(textName: 'Marca: ${widget.service.brand}'),
+                      TextPrimary(textName: 'Modelo: ${widget.service.model}'),
+                      TextPrimary(textName: 'Placa: ${widget.service.plate}'),
+                      TextPrimary(
+                          textName: 'Serviço: ${widget.service.service}'),
                     ],
                   ),
                   const SizedBox(width: 40),
@@ -186,7 +172,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                 ],
               ),
               const SizedBox(height: 11.0),
-              if (!isConfirmButtonVisible)
+              if (widget.service.status != ServiceStatus.confirmed)
                 Column(
                   children: [
                     Row(
@@ -194,9 +180,10 @@ class _ExpandableCardState extends State<ExpandableCard> {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            controller.changeStatus(
+                                widget.index, ServiceStatus.canceled);
                             setState(() {
-                              isConfirmButtonVisibleRecusar = true;
-                              isConfirmButtonVisible = true;
+                              isCardExpanded = false;
                             });
                           },
                           child: Container(
@@ -218,9 +205,10 @@ class _ExpandableCardState extends State<ExpandableCard> {
                         const SizedBox(width: 30),
                         GestureDetector(
                           onTap: () {
+                            controller.changeStatus(
+                                widget.index, ServiceStatus.confirmed);
                             setState(() {
-                              isConfirmButtonVisibleAceitar = true;
-                              isConfirmButtonVisible = true;
+                              isCardExpanded = false;
                             });
                           },
                           child: Container(
@@ -247,7 +235,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
                     ),
                   ],
                 ),
-              if (isConfirmButtonVisibleAceitar)
+              if (widget.service.status == ServiceStatus.confirmed)
                 Center(
                   child: Column(
                     children: [
@@ -264,36 +252,8 @@ class _ExpandableCardState extends State<ExpandableCard> {
                             borderRadius: BorderRadius.circular(8.0),
                             border: Border.all(color: Colors.black)),
                         child: Text(
-                          widget.statusConfirmado,
+                          widget.service.statusDisplay(),
                           style: const TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      const Icon(
-                        Icons.arrow_drop_up_outlined,
-                        size: 30.0,
-                      ),
-                    ],
-                  ),
-                ),
-              if (isConfirmButtonVisibleRecusar)
-                Center(
-                  child: Column(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        width: 124,
-                        height: 31,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0,
-                          vertical: 6.0,
-                        ),
-                        decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 213, 0, 0),
-                            borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(color: Colors.black)),
-                        child: const Text(
-                          "Recusado",
-                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                       const Icon(
@@ -312,6 +272,10 @@ class _ExpandableCardState extends State<ExpandableCard> {
 
   @override
   Widget build(BuildContext context) {
-    return !isCardExpanded ? _renderItem() : _renderExpandedItem();
+    final solicitationController = Provider.of<SolicitationController>(context);
+
+    return !isCardExpanded
+        ? _renderItem(solicitationController)
+        : _renderExpandedItem(solicitationController);
   }
 }
