@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ijato/app/controllers/solicitation_controller.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ijato/app/controllers/user_controller.dart';
@@ -26,6 +27,7 @@ class AppWidget extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserController()),
+        ChangeNotifierProvider(create: (_) => SolicitationController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
