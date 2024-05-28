@@ -5,6 +5,8 @@ import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
 import 'package:ijato/app/pages/tabs/services_establishment.dart';
 import 'package:ijato/app/pages/tabs/finances_establishment.dart';
 import 'package:ijato/app/pages/tabs/requests_establishment.dart';
+
+import 'package:provider/provider.dart';
 import 'package:ijato/app/shared/navigation_provider.dart';
 import 'package:ijato/app/widgets/app_scaffold.dart';
 
