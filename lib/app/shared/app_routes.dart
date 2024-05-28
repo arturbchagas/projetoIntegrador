@@ -10,4 +10,5 @@ abstract class AppRoutes {
   static const servicesEstablishment = '/services_Establishment';
   static const financesEstablishment = '/finances_Establishment';
   static const requestsEstablishment = '/requests_Establishment';
+  static const profileEstablishment = '/profile_establishment';
 }
