@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:ijato/app/controllers/user_controller.dart';
+
+import 'package:ijato/app/shared/app_routes.dart';
+
 import 'package:ijato/app/pages/establishment_reg.dart';
+import 'package:ijato/app/pages/tabs/app_navigation_establishment.dart';
 import 'package:ijato/app/pages/tabs/home_establishment.dart';
 import 'package:ijato/app/pages/tabs/home_user.dart';
 import 'package:ijato/app/pages/tabs/schedule_establishment.dart';
 import 'package:ijato/app/pages/user_type.dart';
-import 'package:ijato/app/shared/app_routes.dart';
-import 'package:ijato/app/pages/tabs/app_navigation_establishment.dart';
 import 'package:ijato/app/pages/login.dart';
 import 'package:ijato/app/pages/tabs/services_establishment.dart';
 import 'package:ijato/app/pages/tabs/finances_establishment.dart';
 import 'package:ijato/app/pages/tabs/requests_establishment.dart';
-import 'package:provider/provider.dart';
 
 import 'pages/register.dart';
 
@@ -26,7 +29,7 @@ class AppWidget extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.index,
+        initialRoute: AppRoutes.appNavigationEstablishment,
         routes: {
           AppRoutes.appNavigationEstablishment: (ctx) =>
               const AppNavigationEstablishment(),
