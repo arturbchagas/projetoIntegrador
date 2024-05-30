@@ -44,7 +44,7 @@ class AppWidget extends StatelessWidget {
           AppRoutes.scheduleEstablishment: (ctx) =>
               const ScheduleEstablishment(),
           AppRoutes.servicesEstablishment: (ctx) =>
-              const ServicesEstablishment(),
+              const ServicesStablishment(),
           AppRoutes.financesEstablishment: (ctx) =>
               const FinancesEstablishment(),
           AppRoutes.requestsEstablishment: (ctx) =>

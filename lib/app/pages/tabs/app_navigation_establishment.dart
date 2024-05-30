@@ -24,7 +24,7 @@ class _AppNavigationEstablishmentState
   final List<Widget> _pages = [
     const HomeEstablishment(),
     const ScheduleEstablishment(),
-    const ServicesEstablishment(),
+    const ServicesStablishment(),
     const FinancesEstablishment(),
     const RequestsEstablishment(),
   ];
