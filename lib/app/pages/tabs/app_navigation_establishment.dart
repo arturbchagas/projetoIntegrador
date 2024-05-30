@@ -20,7 +20,7 @@ class _AppNavigationEstablishmentState
   final List<Widget> tabs = [
     const HomeEstablishment(),
     const ScheduleEstablishment(),
-    const ServicesEstablishment(),
+    const ServicesStablishment(),
     const FinancesEstablishment(),
     const RequestsEstablishment(),
   ];
@@ -55,7 +55,7 @@ class _AppNavigationEstablishmentState
           BottomNavigationBarItem(
             backgroundColor: Color.fromARGB(255, 63, 63, 63),
             icon: Icon(Icons.construction),
-            label: 'Conta',
+            label: 'Serviços',
           ),
           BottomNavigationBarItem(
             backgroundColor: Color.fromARGB(255, 5, 160, 44),
