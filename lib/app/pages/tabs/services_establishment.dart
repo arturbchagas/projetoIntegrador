@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 
+class ServicesEstablishment extends StatefulWidget {
+  const ServicesEstablishment({super.key});
 
+  @override
+  State<ServicesEstablishment> createState() => _ServicesEstablishmentState();
+}
+
+class _ServicesEstablishmentState extends State<ServicesEstablishment> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: const Column(
+              padding: const EdgeInsets.symmetric(horizontal: 4.0),
+              child: Column(
                 children: [
                   const SizedBox(height: 15),
                   const Text(
@@ -17,59 +25,77 @@ import 'package:flutter/material.dart';
                   ),
                   Expanded(
                     flex: 11,
-                    child: ListView.builder(
-                      itemCount: listServices.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                          onTap: () {
-                            showCustomModal(context, listServices[index]);
-                          },
-                          title: Center(
-                            child: Text(
-                              listServices[index].name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          subtitle: Text(
-                            listServices[index].description,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          leading: Container(
-                            width: 56.0,
-                            height: 53.0,
-                            decoration: BoxDecoration(
-                              color: const Color.fromRGBO(49, 101, 24, 1),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  '${listServices[index].value}',
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                        vertical: 8.0,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xffD9D9D9),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: ListView.separated(
+                          itemCount: listServices.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return ListTile(
+                              onTap: () {
+                                showCustomModal(context, listServices[index]);
+                              },
+                              title: Center(
+                                child: Text(
+                                  listServices[index].name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(
-                                    fontSize: 13.0,
-                                    color: Colors.white,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.delete),
-                            onPressed: () {
-                              setState(() {
-                                listServices.removeAt(index);
-                              });
-                            },
-                          ),
-                        );
-                      },
+                              ),
+                              subtitle: Text(
+                                listServices[index].description,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              leading: Container(
+                                width: 56.0,
+                                height: 53.0,
+                                decoration: BoxDecoration(
+                                  color: const Color.fromRGBO(49, 101, 24, 1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      '${listServices[index].value}',
+                                      style: const TextStyle(
+                                        fontSize: 13.0,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.delete),
+                                onPressed: () {
+                                  setState(() {
+                                    listServices.removeAt(index);
+                                  });
+                                },
+                              ),
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return const Divider(
+                              color: Colors.white,
+                              thickness: 10,
+                            );
+                          },
+                        ),
+                      ),
                     ),
                   ),
                   Expanded(
@@ -97,8 +123,8 @@ import 'package:flutter/material.dart';
                           ),
                         ),
                       ),
-                    ],
-                  )
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -232,7 +258,7 @@ class Services {
   Services(this.name, this.value, this.description);
 }
 
-List<Services> listServices = [
+final listServices = [
   Services("Leva e traz:", 00.00,
       "Deixe que um funcionário pegue o seu veículo em sua casa, sem se preocupar em ir ao local pessoalmente."),
   Services("Lavar na residência:", 00.00,
