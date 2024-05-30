@@ -17,20 +17,11 @@ class _ServicesStablishmentState extends State<ServicesStablishment> {
     return Scaffold(
       body: Stack(
         children: [
-          const SizedBox(height: 135, child: AppbarHome()),
           SafeArea(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
               child: Column(
                 children: [
-                  const SizedBox(height: 20),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      SizedBox(width: 100, height: 100, child: LogoImage()),
-                      SizedBox(width: 100, height: 100, child: AvatarImage())
-                    ],
-                  ),
                   const SizedBox(height: 15),
                   const Text(
                     "Serviços:",
