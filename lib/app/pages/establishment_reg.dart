@@ -1,7 +1,6 @@
 /* define um widget EstablishmentReg que representa a tela de registro de estabelecimento */
 
 import 'package:flutter/material.dart';
-
 import 'package:ijato/app/controllers/user_controller.dart';
 import 'package:ijato/app/shared/app_routes.dart';
 

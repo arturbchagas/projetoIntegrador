@@ -10,8 +10,8 @@ class LogoImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: const ButtonStyle(
-        backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-        shadowColor: MaterialStatePropertyAll(Colors.transparent),
+        backgroundColor: WidgetStatePropertyAll(Colors.transparent),
+        shadowColor: WidgetStatePropertyAll(Colors.transparent),
       ),
       child: Image.asset(
         AppImages.logo,

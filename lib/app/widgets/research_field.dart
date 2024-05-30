@@ -4,7 +4,7 @@ class ResearchField extends StatelessWidget {
   final TextEditingController? controller;
   final String? label;
 
-  const ResearchField({Key? key, this.controller, this.label}) : super(key: key);
+  const ResearchField({super.key, this.controller, this.label});
 
   @override
   Widget build(BuildContext context) {

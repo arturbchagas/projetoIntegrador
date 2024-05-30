@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
 
-import 'package:ijato/app/widgets/appbar_home.dart';
-import 'package:ijato/app/widgets/avatar.dart';
-import 'package:ijato/app/widgets/logo.dart';
 
-class ServicesStablishment extends StatefulWidget {
-  const ServicesStablishment({super.key});
-
-  @override
-  State<ServicesStablishment> createState() => _ServicesStablishmentState();
-}
-
-class _ServicesStablishmentState extends State<ServicesStablishment> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           SafeArea(
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: Column(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: const Column(
                 children: [
                   const SizedBox(height: 15),
                   const Text(
@@ -109,8 +97,8 @@ class _ServicesStablishmentState extends State<ServicesStablishment> {
                           ),
                         ),
                       ),
-                    ),
-                  ),
+                    ],
+                  )
                 ],
               ),
             ),
