@@ -10,13 +10,12 @@ class UserController with ChangeNotifier {
   TextEditingController passwordInput = TextEditingController();
   TextEditingController confirmPassInput = TextEditingController();
 
-  var message = '';
   String error = '';
 
   void tryToLogin(BuildContext context) async {
     try {
       if (emailInput.text == "" || passwordInput.text == "") {
-        message = 'preencha todos os campos';
+        error = 'preencha todos os campos';
         throw ('preencha todos os campos');
       }
 
@@ -48,11 +47,11 @@ class UserController with ChangeNotifier {
           emailInput.text == "" ||
           phoneInput.text == "" ||
           passwordInput.text == "") {
-        message = 'preencha todos os campos';
+        error = 'preencha todos os campos';
         throw ('preencha todos os campos');
       }
       if (confirmPassInput.text != passwordInput.text) {
-        message = 'As senhas nao sao iguais';
+        error = 'As senhas nao sao iguais';
         throw ('As senhas nao sao iguais');
       }
 
@@ -75,7 +74,7 @@ class UserController with ChangeNotifier {
       Navigator.pushReplacementNamed(context, AppRoutes.homeUser);
     } else if (user.type == UserType.company) {
       Navigator.pushReplacementNamed(
-          context, AppRoutes.appNavigationStablishment);
+          context, AppRoutes.appNavigationEstablishment);
     } else {
       error = 'Credenciais inválidas';
       notifyListeners();
@@ -83,7 +82,6 @@ class UserController with ChangeNotifier {
   }
 
   void resetsAllFields() {
-    message = "";
     nameInput.text = "";
     emailInput.text = "";
     phoneInput.text = "";
