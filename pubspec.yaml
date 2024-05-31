@@ -38,7 +38,9 @@ dependencies:
   get: ^4.6.6
   routefly: ^1.0.9
   provider: ^6.1.2
-  
+  charts_flutter: ^0.11.0
+  fl_chart: ^0.68.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
