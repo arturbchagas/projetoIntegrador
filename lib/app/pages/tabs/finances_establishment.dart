@@ -11,14 +11,22 @@ class FinancesEstablishment extends StatefulWidget {
 class _FinancesEstablishmentState extends State<FinancesEstablishment> {
   String _currentPeriod = 'monthly';
   final List<double> _monthlyData = [25, 17, 5];
-  final List<double> _weeklyData = [6, 4, 1]; // Dados de teste para a semana
-  final List<double> _dailyData = [1, 1, 1]; // Dados de teste para o dia
+  final List<double> _weeklyData = [6, 4, 1];
+  final List<double> _dailyData = [1, 1, 1];
+
+  final double _monthlyProfit = 3750;
+  final double _weeklyProfit = 900;
+  final double _dailyProfit = 150;
 
   @override
   Widget build(BuildContext context) {
     List<double> _currentData = _currentPeriod == 'monthly'
         ? _monthlyData
         : (_currentPeriod == 'weekly' ? _weeklyData : _dailyData);
+
+    double _currentProfit = _currentPeriod == 'monthly'
+        ? _monthlyProfit
+        : (_currentPeriod == 'weekly' ? _weeklyProfit : _dailyProfit);
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
@@ -110,9 +118,9 @@ class _FinancesEstablishmentState extends State<FinancesEstablishment> {
                     Text("Atendimentos: ${_currentData[1]}"),
                     Text("Avulsos: ${_currentData[2]}"),
                     const Divider(color: Colors.black),
-                    const Text(
-                      "Lucro Total: R\$ 3.750",
-                      style: TextStyle(
+                    Text(
+                      "Lucro Total: R\$ $_currentProfit", // Altere esta linha
+                      style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: Colors.green),
