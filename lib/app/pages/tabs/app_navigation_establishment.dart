@@ -14,7 +14,6 @@ class AppNavigationEstablishment extends StatefulWidget {
   const AppNavigationEstablishment({super.key});
 
   @override
-
   _AppNavigationEstablishmentState createState() =>
       _AppNavigationEstablishmentState();
 }

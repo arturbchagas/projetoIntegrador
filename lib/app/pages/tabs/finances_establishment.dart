@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class FinancesEstablishment extends StatefulWidget {
   const FinancesEstablishment({super.key});
 
@@ -15,7 +16,6 @@ class _FinancesEstablishmentState extends State<FinancesEstablishment> {
   Widget build(BuildContext context) {
     // Cálculo do saldo
     double saldo = receitas - despesas;
-
     return Scaffold(
       body: Stack(
         children: [
