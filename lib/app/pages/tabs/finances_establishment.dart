@@ -11,9 +11,15 @@ class FinancesEstablishment extends StatefulWidget {
 class _FinancesEstablishmentState extends State<FinancesEstablishment> {
   String _currentPeriod = 'monthly';
   final List<double> _monthlyData = [25, 17, 5];
+  final List<double> _weeklyData = [6, 4, 1]; // Dados de teste para a semana
+  final List<double> _dailyData = [1, 1, 1]; // Dados de teste para o dia
 
   @override
   Widget build(BuildContext context) {
+    List<double> _currentData = _currentPeriod == 'monthly'
+        ? _monthlyData
+        : (_currentPeriod == 'weekly' ? _weeklyData : _dailyData);
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       body: SafeArea(
@@ -100,9 +106,9 @@ class _FinancesEstablishmentState extends State<FinancesEstablishment> {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
-                    Text("Serviços: ${_monthlyData[0]}"),
-                    Text("Atendimentos: ${_monthlyData[1]}"),
-                    Text("Avulsos: ${_monthlyData[2]}"),
+                    Text("Serviços: ${_currentData[0]}"),
+                    Text("Atendimentos: ${_currentData[1]}"),
+                    Text("Avulsos: ${_currentData[2]}"),
                     const Divider(color: Colors.black),
                     const Text(
                       "Lucro Total: R\$ 3.750",
@@ -116,39 +122,82 @@ class _FinancesEstablishmentState extends State<FinancesEstablishment> {
               ),
               const SizedBox(height: 20),
               Expanded(
-                child: SizedBox(
-                  height: 250,
-                  child: PieChart(
-                    PieChartData(
-                      sections: [
-                        PieChartSectionData(
-                          value: _monthlyData[0],
-                          title: 'Serviços',
-                          color: Colors.green,
-                          radius: 50,
-                          titleStyle: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                child: Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 250,
+                          child: PieChart(
+                            PieChartData(
+                              sections: [
+                                PieChartSectionData(
+                                  value: _currentData[0],
+                                  color: Colors.green,
+                                  radius: 50,
+                                ),
+                                PieChartSectionData(
+                                  value: _currentData[1],
+                                  color: Colors.blue,
+                                  radius: 50,
+                                ),
+                                PieChartSectionData(
+                                  value: _currentData[2],
+                                  color: Colors.yellow,
+                                  radius: 50,
+                                ),
+                              ],
+                              sectionsSpace: 4,
+                              centerSpaceRadius: 0,
+                            ),
+                          ),
                         ),
-                        PieChartSectionData(
-                          value: _monthlyData[1],
-                          title: 'Atendimentos',
-                          color: Colors.blue,
-                          radius: 50,
-                          titleStyle: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                        PieChartSectionData(
-                          value: _monthlyData[2],
-                          title: 'Avulsos',
-                          color: Colors.yellow,
-                          radius: 50,
-                          titleStyle: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                      sectionsSpace: 4,
-                      centerSpaceRadius: 0,
-                    ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                height: 20,
+                                color: Colors.green,
+                              ),
+                              SizedBox(width: 5),
+                              Text('Serviços'),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                height: 20,
+                                color: Colors.blue,
+                              ),
+                              SizedBox(width: 5),
+                              Text('Atendimentos'),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: [
+                              Container(
+                                width: 20,
+                                height: 20,
+                                color: Colors.yellow,
+                              ),
+                              SizedBox(width: 5),
+                              Text('Avulsos'),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 100,
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -158,9 +207,7 @@ class _FinancesEstablishmentState extends State<FinancesEstablishment> {
                   width: 176,
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // Adicione aqui a ação a ser executada ao pressionar o botão
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: const Color.fromRGBO(31, 29, 132, 1),
