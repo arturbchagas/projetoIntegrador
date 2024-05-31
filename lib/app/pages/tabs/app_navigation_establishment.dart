@@ -14,7 +14,6 @@ class AppNavigationEstablishment extends StatefulWidget {
   const AppNavigationEstablishment({super.key});
 
   @override
-
   _AppNavigationEstablishmentState createState() =>
       _AppNavigationEstablishmentState();
 }
@@ -24,7 +23,7 @@ class _AppNavigationEstablishmentState
   final List<Widget> _pages = [
     const HomeEstablishment(),
     const ScheduleEstablishment(),
-    const ServicesStablishment(),
+    const ServicesEstablishment(),
     const FinancesEstablishment(),
     const RequestsEstablishment(),
   ];
