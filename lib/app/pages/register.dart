@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ijato/app/shared/app_routes.dart';
+import 'package:provider/provider.dart';
 
+import 'package:ijato/app/shared/app_routes.dart';
 import 'package:ijato/app/controllers/user_controller.dart';
 
 import 'package:ijato/app/widgets/background_image.dart';
@@ -18,16 +19,16 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final controller = UserController();
-
-  void _setMessage() {
-    setState(() {
-      controller.message;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final userController = Provider.of<UserController>(context);
+
+    void setMessage() {
+      setState(() {
+        userController.error;
+      });
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -42,38 +43,38 @@ class _RegisterPageState extends State<RegisterPage> {
                     const LogoImage(),
                     const SizedBox(height: 15),
                     Text(
-                      controller.message,
+                      userController.error,
                       style: const TextStyle(color: Colors.red, fontSize: 16),
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "nome completo",
                       onChanged: (value) => {},
-                      controller: controller.nameInput,
+                      controller: userController.nameInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "e-mail",
                       onChanged: (value) => {},
-                      controller: controller.emailInput,
+                      controller: userController.emailInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "telefone",
                       onChanged: (value) => {},
-                      controller: controller.phoneInput,
+                      controller: userController.phoneInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "senha",
                       onChanged: (value) => {},
-                      controller: controller.passwordInput,
+                      controller: userController.passwordInput,
                     ),
                     const SizedBox(height: 15),
                     TextFieldPrimary(
                       textFieldName: "confirmar senha",
                       onChanged: (value) => {},
-                      controller: controller.confirmPassInput,
+                      controller: userController.confirmPassInput,
                     ),
                     const SizedBox(height: 5),
                     const Row(
@@ -90,8 +91,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       color: Colors.blue,
                       buttonPrimaryName: "cadastrar-se",
                       onPressed: () {
-                        _setMessage();
-                        controller.register(context);
+                        setMessage();
+                        userController.register(context);
                       },
                     ),
                     const SizedBox(height: 10),
@@ -105,7 +106,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         UnderlinedText(
                             underlinedText: "login?",
                             onPressed: () {
-                              controller.resetsAllFields();
+                              userController.resetsAllFields();
                               Navigator.pushNamed(context, AppRoutes.index);
                             })
                       ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ijato/app/controllers/solicitation_controller.dart';
+import 'package:ijato/app/pages/tabs/profile_establishment.dart';
 import 'package:provider/provider.dart';
 
 import 'package:ijato/app/controllers/user_controller.dart';
@@ -15,7 +17,6 @@ import 'package:ijato/app/pages/login.dart';
 import 'package:ijato/app/pages/tabs/services_establishment.dart';
 import 'package:ijato/app/pages/tabs/finances_establishment.dart';
 import 'package:ijato/app/pages/tabs/requests_establishment.dart';
-import 'package:ijato/app/pages/tabs/profile_establishment.dart';
 
 import 'pages/register.dart';
 
@@ -27,10 +28,11 @@ class AppWidget extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => UserController()),
+        ChangeNotifierProvider(create: (_) => SolicitationController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: AppRoutes.profileEstablishment,
+        initialRoute: AppRoutes.appNavigationEstablishment,
         routes: {
           AppRoutes.appNavigationEstablishment: (ctx) =>
               const AppNavigationEstablishment(),
@@ -40,7 +42,6 @@ class AppWidget extends StatelessWidget {
           AppRoutes.homeEstablishment: (ctx) => const HomeEstablishment(),
           AppRoutes.userType: (ctx) => const UserTypePage(),
           AppRoutes.establishmentReg: (ctx) => const EstablishmentReg(),
-          AppRoutes.profileEstablishment: (ctx) => const ProfileEstablishment(),
           AppRoutes.scheduleEstablishment: (ctx) =>
               const ScheduleEstablishment(),
           AppRoutes.servicesEstablishment: (ctx) =>
@@ -49,6 +50,7 @@ class AppWidget extends StatelessWidget {
               const FinancesEstablishment(),
           AppRoutes.requestsEstablishment: (ctx) =>
               const RequestsEstablishment(),
+          AppRoutes.profileEstablishment: (ctx) => const ProfileEstablishment(),
         },
       ),
     );
