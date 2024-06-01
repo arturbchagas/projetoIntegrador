@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class WeekDays extends StatelessWidget {
+class Week extends StatelessWidget {
   String days;
   Color openday;
 
-  WeekDays({required this.days, super.key, required this.openday});
+  Week({required this.days, super.key, required this.openday});
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +30,13 @@ class ServiceBar extends StatelessWidget {
   Icon icon;
   Icon icon2;
   Icon iconOn;
-  WeekDays weekDays;
-  WeekDays weekDays1;
-  WeekDays weekDays2;
-  WeekDays weekDays3;
-  WeekDays weekDays4;
-  WeekDays weekDays5;
-  WeekDays weekDays6;
+  Week weekDays;
+  Week weekDays1;
+  Week weekDays2;
+  Week weekDays3;
+  Week weekDays4;
+  Week weekDays5;
+  Week weekDays6;
 
   ServiceBar({
     super.key,

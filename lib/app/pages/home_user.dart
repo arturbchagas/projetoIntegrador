@@ -86,22 +86,16 @@ class HomePage extends StatelessWidget {
                               Icons.radio_button_checked,
                               color: Colors.green,
                             ),
-                            weekDays: WeekDays(
+                            weekDays: Week(
                               days: "D",
                               openday: Colors.grey,
                             ),
-                            weekDays1:
-                                WeekDays(days: "S", openday: Colors.green),
-                            weekDays2:
-                                WeekDays(days: "T", openday: Colors.green),
-                            weekDays3:
-                                WeekDays(days: "Q", openday: Colors.green),
-                            weekDays4:
-                                WeekDays(days: "Q", openday: Colors.green),
-                            weekDays5:
-                                WeekDays(days: "S", openday: Colors.green),
-                            weekDays6:
-                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays1: Week(days: "S", openday: Colors.green),
+                            weekDays2: Week(days: "T", openday: Colors.green),
+                            weekDays3: Week(days: "Q", openday: Colors.green),
+                            weekDays4: Week(days: "Q", openday: Colors.green),
+                            weekDays5: Week(days: "S", openday: Colors.green),
+                            weekDays6: Week(days: "S", openday: Colors.green),
                           )),
                       ResultsBar(
                           establishmentName: "VipCar",
@@ -113,22 +107,16 @@ class HomePage extends StatelessWidget {
                               Icons.radio_button_checked,
                               color: Colors.green,
                             ),
-                            weekDays: WeekDays(
+                            weekDays: Week(
                               days: "D",
                               openday: Colors.green,
                             ),
-                            weekDays1:
-                                WeekDays(days: "S", openday: Colors.grey),
-                            weekDays2:
-                                WeekDays(days: "T", openday: Colors.green),
-                            weekDays3:
-                                WeekDays(days: "Q", openday: Colors.green),
-                            weekDays4:
-                                WeekDays(days: "Q", openday: Colors.green),
-                            weekDays5:
-                                WeekDays(days: "S", openday: Colors.green),
-                            weekDays6:
-                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays1: Week(days: "S", openday: Colors.grey),
+                            weekDays2: Week(days: "T", openday: Colors.green),
+                            weekDays3: Week(days: "Q", openday: Colors.green),
+                            weekDays4: Week(days: "Q", openday: Colors.green),
+                            weekDays5: Week(days: "S", openday: Colors.green),
+                            weekDays6: Week(days: "S", openday: Colors.green),
                           )),
                       ResultsBar(
                           establishmentName: "FastJato",
@@ -140,22 +128,16 @@ class HomePage extends StatelessWidget {
                               Icons.radio_button_checked,
                               color: Colors.red,
                             ),
-                            weekDays: WeekDays(
+                            weekDays: Week(
                               days: "D",
                               openday: Colors.green,
                             ),
-                            weekDays1:
-                                WeekDays(days: "S", openday: Colors.green),
-                            weekDays2:
-                                WeekDays(days: "T", openday: Colors.green),
-                            weekDays3:
-                                WeekDays(days: "Q", openday: Colors.grey),
-                            weekDays4:
-                                WeekDays(days: "Q", openday: Colors.green),
-                            weekDays5:
-                                WeekDays(days: "S", openday: Colors.green),
-                            weekDays6:
-                                WeekDays(days: "S", openday: Colors.green),
+                            weekDays1: Week(days: "S", openday: Colors.green),
+                            weekDays2: Week(days: "T", openday: Colors.green),
+                            weekDays3: Week(days: "Q", openday: Colors.grey),
+                            weekDays4: Week(days: "Q", openday: Colors.green),
+                            weekDays5: Week(days: "S", openday: Colors.green),
+                            weekDays6: Week(days: "S", openday: Colors.green),
                           )),
                       SizedBox(
                         height: 12,
